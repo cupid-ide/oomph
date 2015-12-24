@@ -28,7 +28,7 @@
    </license>
 
    <url>
-      <update label="%updateSiteName" url="http://rockyfix"/>
+      <update label="%updateSiteName" url="file:/home/rocky/eclipse/cupiddev-v0-2/git/oomph/releng/org.earthsystemmodeling.oomph.releng.p2/target/repository"/>
       <discovery label="%updateSiteName" url="http://rockyfix"/>
    </url>
 

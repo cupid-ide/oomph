@@ -64,8 +64,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
   public void perform(SetupTaskContext context) throws Exception
   {
     // TODO Implement CreateSyncProjectTaskImpl.perform()
-    context.log("Implement CreateSyncProjectTaskImpl.perform()");
-    System.out.println("ROCKY TEST INSIDE CreateSyncProjectTaskImpl.perform();!!!");
+    context.log("Implement CreateSyncProjectTaskImpl.perform();  (UPDATED)");
+    // System.out.println("ROCKY TEST INSIDE CreateSyncProjectTaskImpl.perform();!!!");
   }
 
   @Override
