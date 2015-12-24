@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.earthsystemmodeling.oomph</groupId>
+	<artifactId>org.earthsystemmodeling.oomph.releng</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<tycho-version>0.23.0</tycho-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<eclipse-p2-repo.url>http://download.eclipse.org/releases/mars</eclipse-p2-repo.url>
+		<eclipse-release>mars</eclipse-release>
+		<eclipse-site>http://download.eclipse.org/releases/mars</eclipse-site>
+	</properties>
+
+	<!-- <repositories> <repository> <id>eclipse-p2-repo</id> <url>${eclipse-p2-repo.url}</url> 
+		<layout>p2</layout> </repository> </repositories> -->
+
+	<profiles>
+		<profile>
+			<id>build-individual-bundles</id>
+			<repositories>
+				<repository>
+					<id>eclipse-p2-repo</id>
+					<url>${eclipse-p2-repo.url}</url>
+					<layout>p2</layout>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- <target> <artifact> <groupId>org.earthsystemmodeling.cupid</groupId> 
+						<artifactId>org.earthsystemmodeling.cupid.targetplatform</artifactId> <version>0.1.0-SNAPSHOT</version> 
+						</artifact> </target> -->
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<modules>
+		<module>../../plugins/org.earthsystemmodeling.oomph.createsyncproject</module>
+		<module>../../plugins/org.earthsystemmodeling.oomph.createsyncproject.edit</module>
+		<module>../../features/org.earthsystemmodeling.oomph.createsyncproject-feature</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>eclipse-${eclipse-release}</id>
+			<url>${eclipse-site}</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+</project>
