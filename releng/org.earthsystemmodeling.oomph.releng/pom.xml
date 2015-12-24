@@ -86,4 +86,16 @@
 	</repositories>
 	
 	
+	<modules>
+		<module>
+			../../plugins/org.earthsystemmodeling.oomph.createsyncproject
+		</module>
+		<module>
+			../../features/org.earthsystemmodeling.oomph.createsyncproject-feature
+		</module>
+		<module>
+			../../plugins/org.earthsystemmodeling.oomph.createsyncproject.edit
+		</module>
+		<module>../org.earthsystemmodeling.oomph.releng.p2</module>
+	</modules>
 </project>
