@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EPackage;
  * <!-- end-user-doc -->
  * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore schemaLocation='https://raw.githubusercontent.com/cupid-ide/cupid/v0.2/oomph/org.eclipse.oomph.setup.createsyncproject/model/CreateSyncProject.ecore'"
- *        annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='setup.createsyncproject.p2' repository='file:/home/rocky/eclipse/cupiddev-v0-2/git/cupid/org.earthsystemmodeling.cupid.releng.p2/target/repository' installableUnits='org.eclipse.oomph.setup.createsyncproject.feature.feature.group'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore schemaLocation='https://raw.githubusercontent.com/cupid-ide/oomph/master/plugins/org.earthsystemmodeling.oomph.createsyncproject/model/CreateSyncProject.ecore'"
+ *        annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='setup.createsyncproject.p2' repository='file:/home/rocky/eclipse/cupiddev-v0-2/git/oomph/releng/org.earthsystemmodeling.oomph.releng.p2/target/repository' installableUnits='org.earthsystemmodeling.oomph.createsyncproject.feature.group'"
  *        annotation="http://www.eclipse.org/oomph/base/LabelProvider imageBaseURI='http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/plugins/org.eclipse.oomph.setup.createsyncproject.edit/icons/full/obj16'"
  * @generated
  */

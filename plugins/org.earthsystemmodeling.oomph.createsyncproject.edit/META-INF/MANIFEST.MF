@@ -5,7 +5,7 @@ Bundle-Vendor: %providerName
 Bundle-SymbolicName: org.earthsystemmodeling.oomph.createsyncproject.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.eclipse.oomph.setup.createsyncproject.provider.CreateSyncProjectEditPlugin$Implementation
+Bundle-Activator: org.earthsystemmodeling.oomph.createsyncproject.provider.CreateSyncProjectEditPlugin$Implementation
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
@@ -17,4 +17,5 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
  org.eclipse.oomph.base;bundle-version="[1.1.0,2.0.0)";visibility:=reexport,
  org.eclipse.oomph.base.edit;bundle-version="[1.1.0,2.0.0)";visibility:=reexport,
  org.earthsystemmodeling.oomph.createsyncproject;bundle-version="[1.0.0,2.0.0)";visibility:=reexport
-Export-Package: org.eclipse.oomph.setup.createsyncproject.provider;version="1.0.0"
+Export-Package: org.earthsystemmodeling.oomph.createsyncproject.provider,
+ org.eclipse.oomph.setup.createsyncproject.provider;version="1.0.0"

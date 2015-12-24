@@ -182,7 +182,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     initEClass(createSyncProjectTaskEClass, CreateSyncProjectTask.class, "CreateSyncProjectTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
-    createResource("https://raw.githubusercontent.com/cupid-ide/cupid/v0.2/oomph/org.eclipse.oomph.setup.createsyncproject/model/CreateSyncProject.ecore");
+    createResource(
+        "https://raw.githubusercontent.com/cupid-ide/oomph/master/plugins/org.earthsystemmodeling.oomph.createsyncproject/model/CreateSyncProject.ecore");
 
     // Create annotations
     // http://www.eclipse.org/emf/2002/Ecore
@@ -205,7 +206,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
   {
     String source = "http://www.eclipse.org/emf/2002/Ecore";
     addAnnotation(this, source, new String[] { "schemaLocation",
-        "https://raw.githubusercontent.com/cupid-ide/cupid/v0.2/oomph/org.eclipse.oomph.setup.createsyncproject/model/CreateSyncProject.ecore" });
+        "https://raw.githubusercontent.com/cupid-ide/oomph/master/plugins/org.earthsystemmodeling.oomph.createsyncproject/model/CreateSyncProject.ecore" });
   }
 
   /**
@@ -219,8 +220,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     String source = "http://www.eclipse.org/oomph/setup/Enablement";
     addAnnotation(this, source,
         new String[] { "variableName", "setup.createsyncproject.p2", "repository",
-            "file:/home/rocky/eclipse/cupiddev-v0-2/git/cupid/org.earthsystemmodeling.cupid.releng.p2/target/repository", "installableUnits",
-            "org.eclipse.oomph.setup.createsyncproject.feature.feature.group" });
+            "file:/home/rocky/eclipse/cupiddev-v0-2/git/oomph/releng/org.earthsystemmodeling.oomph.releng.p2/target/repository", "installableUnits",
+            "org.earthsystemmodeling.oomph.createsyncproject.feature.group" });
   }
 
   /**
