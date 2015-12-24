@@ -10,9 +10,9 @@
     Eike Stepper - initial API and implementation
 -->
 <feature
-      id="org.eclipse.oomph.setup.createsyncproject.feature"
+      id="org.earthsystemmodeling.oomph.createsyncproject"
       label="%featureName"
-      version="0.2.0.201512232324"
+      version="1.0.0.201512240013"
       provider-name="%providerName">
 
    <description>
@@ -33,17 +33,17 @@
    </url>
 
    <plugin
-         id="org.eclipse.oomph.setup.createsyncproject"
+         id="org.earthsystemmodeling.oomph.createsyncproject"
          download-size="16"
          install-size="27"
-         version="0.2.0.201512232324"
+         version="1.0.0.201512240013"
          unpack="false"/>
 
    <plugin
-         id="org.eclipse.oomph.setup.createsyncproject.edit"
+         id="org.earthsystemmodeling.oomph.createsyncproject.edit"
          download-size="14"
          install-size="24"
-         version="0.2.0.201512232324"
+         version="1.0.0.201512240013"
          unpack="false"/>
 
 </feature>

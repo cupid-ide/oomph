@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='org.eclipse.oomph.setup.createsyncproject.edit' version='0.2.0.201512232324'>
+  <artifact classifier='osgi.bundle' id='org.earthsystemmodeling.oomph.createsyncproject.edit' version='1.0.0.201512240013'>
     <properties size='5'>
-      <property name='artifact.size' value='14858'/>
-      <property name='download.size' value='14858'/>
-      <property name='maven-groupId' value='org.earthsystemmodeling.cupid'/>
-      <property name='maven-artifactId' value='org.eclipse.oomph.setup.createsyncproject.edit'/>
-      <property name='maven-version' value='0.2.0-SNAPSHOT'/>
+      <property name='artifact.size' value='14888'/>
+      <property name='download.size' value='14888'/>
+      <property name='maven-groupId' value='org.earthsystemmodeling.oomph'/>
+      <property name='maven-artifactId' value='org.earthsystemmodeling.oomph.createsyncproject.edit'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
   </artifact>
 </artifacts>

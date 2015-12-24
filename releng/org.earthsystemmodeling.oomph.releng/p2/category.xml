@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/org.earthsystemmodeling.oomph.createsyncproject_1.0.0.qualifier.jar" id="org.earthsystemmodeling.oomph.createsyncproject" version="1.0.0.qualifier">
-      <category name="cupidoomph"/>
-   </feature>
-   <category-def name="cupidoomph" label="Oomph Setup Extensions for Cupid"/>
-</site>
