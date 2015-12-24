@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: org.eclipse.oomph.setup.createsyncproject.edit;si
- ngleton:=true
+Bundle-SymbolicName: org.earthsystemmodeling.oomph.createsyncproject.e
+ dit;singleton:=true
 Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)
  ",org.eclipse.emf.ecore;bundle-version="[2.10.0,3.0.0)",org.eclipse.e
  mf.edit;bundle-version="[2.10.0,3.0.0)";visibility:=reexport,org.ecli
@@ -8,8 +8,8 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)
  rg.eclipse.oomph.setup.edit;bundle-version="[1.1.0,2.0.0)";visibility
  :=reexport,org.eclipse.oomph.base;bundle-version="[1.1.0,2.0.0)";visi
  bility:=reexport,org.eclipse.oomph.base.edit;bundle-version="[1.1.0,2
- .0.0)";visibility:=reexport,org.eclipse.oomph.setup.createsyncproject
- ;bundle-version="[0.2.0,1.0.0)";visibility:=reexport
+ .0.0)";visibility:=reexport,org.earthsystemmodeling.oomph.createsyncp
+ roject;bundle-version="[1.0.0,2.0.0)";visibility:=reexport
 Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
@@ -17,7 +17,7 @@ Bundle-Vendor: %providerName
 Export-Package: org.eclipse.oomph.setup.createsyncproject.provider;ver
  sion="1.0.0"
 Bundle-Name: %pluginName
-Bundle-Version: 0.2.0.201512232324
+Bundle-Version: 1.0.0.201512240013
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: org.eclipse.oomph.setup.createsyncproject.provider.C

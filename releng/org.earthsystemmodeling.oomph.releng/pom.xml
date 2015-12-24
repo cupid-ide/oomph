@@ -68,11 +68,6 @@
 	</build>
 
 
-	<modules>
-		<module>../../plugins/org.earthsystemmodeling.oomph.createsyncproject</module>
-		<module>../../plugins/org.earthsystemmodeling.oomph.createsyncproject.edit</module>
-		<module>../../features/org.earthsystemmodeling.oomph.createsyncproject-feature</module>
-	</modules>
 
 	<repositories>
 		<repository>
@@ -81,4 +76,15 @@
 			<layout>p2</layout>
 		</repository>
 	</repositories>
+	<modules>
+		<module>
+			../../plugins/org.eclipse.oomph.setup.createsyncproject
+		</module>
+		<module>
+			../../features/org.eclipse.oomph.setup.createsyncproject-feature
+		</module>
+		<module>
+			../../plugins/org.eclipse.oomph.setup.createsyncproject.edit
+		</module>
+	</modules>
 </project>
