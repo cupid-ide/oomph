@@ -1,23 +1,25 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject.util;
+package org.earthsystemmodeling.oomph.createsyncproject.util;
 
 import org.eclipse.oomph.base.ModelElement;
 import org.eclipse.oomph.setup.SetupTask;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
+import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage
+ * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage
  * @generated
  */
 public class CreateSyncProjectAdapterFactory extends AdapterFactoryImpl
@@ -81,6 +83,12 @@ public class CreateSyncProjectAdapterFactory extends AdapterFactoryImpl
     }
 
     @Override
+    public Adapter caseCreateRemoteConnectionTask(CreateRemoteConnectionTask object)
+    {
+      return createCreateRemoteConnectionTaskAdapter();
+    }
+
+    @Override
     public Adapter caseModelElement(ModelElement object)
     {
       return createModelElementAdapter();
@@ -114,16 +122,31 @@ public class CreateSyncProjectAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask <em>Task</em>}'.
+   * Creates a new adapter for an object of class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask <em>Task</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask
    * @generated
    */
   public Adapter createCreateSyncProjectTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask <em>Create Remote Connection Task</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask
+   * @generated
+   */
+  public Adapter createCreateRemoteConnectionTaskAdapter()
   {
     return null;
   }

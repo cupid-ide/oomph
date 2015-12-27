@@ -1,27 +1,24 @@
-/*
- * Copyright (c) 2014 Eike Stepper (Berlin, Germany) and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *    Eike Stepper - initial API and implementation
+/**
  */
-package org.eclipse.oomph.setup.createsyncproject.provider;
+package org.earthsystemmodeling.oomph.createsyncproject.provider;
 
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask;
 import org.eclipse.oomph.setup.provider.SetupTaskItemProvider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
 
 import java.util.Collection;
 import java.util.List;
 
 /**
- * This is the item provider adapter for a {@link org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask} object.
+ * This is the item provider adapter for a {@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
@@ -52,8 +49,23 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
     {
       super.getPropertyDescriptors(object);
 
+      addProjectNamePropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
+  }
+
+  /**
+   * This adds a property descriptor for the Project Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addProjectNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateSyncProjectTask_projectName_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_projectName_feature", "_UI_CreateSyncProjectTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
   }
 
   /**
@@ -85,19 +97,11 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTextGen(Object object)
-  {
-    String label = ((CreateSyncProjectTask)object).getID();
-    return label == null || label.length() == 0 ? getString("_UI_CreateSyncProjectTask_type") : getString("_UI_CreateSyncProjectTask_type") + " " + label;
-  }
-
   @Override
   public String getText(Object object)
   {
-    String label = getTextGen(object);
-
-    String type = getString("_UI_CreateSyncProjectTask_type");
-    return label.startsWith(type + " ") && !label.equals(type) ? label.substring(type.length()).trim() : label;
+    String label = ((CreateSyncProjectTask)object).getID();
+    return label == null || label.length() == 0 ? getString("_UI_CreateSyncProjectTask_type") : getString("_UI_CreateSyncProjectTask_type") + " " + label;
   }
 
   /**
@@ -111,6 +115,13 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
   public void notifyChanged(Notification notification)
   {
     updateChildren(notification);
+
+    switch (notification.getFeatureID(CreateSyncProjectTask.class))
+    {
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
+      fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+      return;
+    }
     super.notifyChanged(notification);
   }
 

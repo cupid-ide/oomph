@@ -1,15 +1,18 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject.impl;
+package org.earthsystemmodeling.oomph.createsyncproject.impl;
 
 import org.eclipse.oomph.setup.SetupPackage;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectFactory;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +30,13 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
   private EClass createSyncProjectTaskEClass = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass createRemoteConnectionTaskEClass = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -37,7 +47,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage#eNS_URI
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#eNS_URI
    * @see #init()
    * @generated
    */
@@ -110,6 +120,56 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCreateSyncProjectTask_ProjectName()
+  {
+    return (EAttribute)createSyncProjectTaskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCreateRemoteConnectionTask()
+  {
+    return createRemoteConnectionTaskEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateRemoteConnectionTask_ConnectionName()
+  {
+    return (EAttribute)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateRemoteConnectionTask_Host()
+  {
+    return (EAttribute)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateRemoteConnectionTask_Username()
+  {
+    return (EAttribute)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public CreateSyncProjectFactory getCreateSyncProjectFactory()
   {
     return (CreateSyncProjectFactory)getEFactoryInstance();
@@ -139,6 +199,12 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
 
     // Create classes and their features
     createSyncProjectTaskEClass = createEClass(CREATE_SYNC_PROJECT_TASK);
+    createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__PROJECT_NAME);
+
+    createRemoteConnectionTaskEClass = createEClass(CREATE_REMOTE_CONNECTION_TASK);
+    createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__CONNECTION_NAME);
+    createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__HOST);
+    createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__USERNAME);
   }
 
   /**
@@ -177,9 +243,21 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
 
     // Add supertypes to classes
     createSyncProjectTaskEClass.getESuperTypes().add(theSetupPackage.getSetupTask());
+    createRemoteConnectionTaskEClass.getESuperTypes().add(theSetupPackage.getSetupTask());
 
     // Initialize classes and features; add operations and parameters
     initEClass(createSyncProjectTaskEClass, CreateSyncProjectTask.class, "CreateSyncProjectTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreateSyncProjectTask_ProjectName(), ecorePackage.getEString(), "projectName", null, 1, 1, CreateSyncProjectTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(createRemoteConnectionTaskEClass, CreateRemoteConnectionTask.class, "CreateRemoteConnectionTask", !IS_ABSTRACT, !IS_INTERFACE,
+        IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreateRemoteConnectionTask_ConnectionName(), ecorePackage.getEString(), "connectionName", null, 1, 1, CreateRemoteConnectionTask.class,
+        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateRemoteConnectionTask_Host(), ecorePackage.getEString(), "host", null, 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateRemoteConnectionTask_Username(), ecorePackage.getEString(), "username", null, 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(
@@ -234,7 +312,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
   {
     String source = "http://www.eclipse.org/oomph/base/LabelProvider";
     addAnnotation(this, source, new String[] { "imageBaseURI",
-        "http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/plugins/org.eclipse.oomph.setup.createsyncproject.edit/icons/full/obj16" });
+        "http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/plugins/org.earthsystemmodeling.oomph.createsyncproject.edit/icons/full/obj16" });
   }
 
   /**
@@ -247,6 +325,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
   {
     String source = "http://www.eclipse.org/oomph/setup/ValidTriggers";
     addAnnotation(createSyncProjectTaskEClass, source, new String[] { "triggers", "STARTUP MANUAL" });
+    addAnnotation(createRemoteConnectionTaskEClass, source, new String[] { "triggers", "STARTUP MANUAL" });
   }
 
 } // CreateSyncProjectPackageImpl

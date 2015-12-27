@@ -1,15 +1,17 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject.util;
+package org.earthsystemmodeling.oomph.createsyncproject.util;
 
 import org.eclipse.oomph.base.ModelElement;
 import org.eclipse.oomph.setup.SetupTask;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +23,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage
+ * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage
  * @generated
  */
 public class CreateSyncProjectSwitch<T> extends Switch<T>
@@ -92,6 +94,24 @@ public class CreateSyncProjectSwitch<T> extends Switch<T>
       }
       return result;
     }
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK:
+    {
+      CreateRemoteConnectionTask createRemoteConnectionTask = (CreateRemoteConnectionTask)theEObject;
+      T result = caseCreateRemoteConnectionTask(createRemoteConnectionTask);
+      if (result == null)
+      {
+        result = caseSetupTask(createRemoteConnectionTask);
+      }
+      if (result == null)
+      {
+        result = caseModelElement(createRemoteConnectionTask);
+      }
+      if (result == null)
+      {
+        result = defaultCase(theEObject);
+      }
+      return result;
+    }
     default:
       return defaultCase(theEObject);
     }
@@ -109,6 +129,22 @@ public class CreateSyncProjectSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCreateSyncProjectTask(CreateSyncProjectTask object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Create Remote Connection Task</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Create Remote Connection Task</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCreateRemoteConnectionTask(CreateRemoteConnectionTask object)
   {
     return null;
   }

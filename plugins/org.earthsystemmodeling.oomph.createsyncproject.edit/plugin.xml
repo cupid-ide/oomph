@@ -10,7 +10,7 @@
       <!-- @generated CreateSyncProject -->
       <factory
             uri="http://www.eclipse.org/oomph/setup/createsyncproject/1.0"
-            class="org.eclipse.oomph.setup.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory"
+            class="org.earthsystemmodeling.oomph.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -23,10 +23,10 @@
       <!-- @generated CreateSyncProject -->
       <extender
             uri="http://www.eclipse.org/oomph/base/1.0"
-            class="org.eclipse.oomph.setup.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory$BaseChildCreationExtender"/>
+            class="org.earthsystemmodeling.oomph.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory$BaseChildCreationExtender"/>
       <extender
             uri="http://www.eclipse.org/oomph/setup/1.0"
-            class="org.eclipse.oomph.setup.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory$SetupChildCreationExtender"/>
+            class="org.earthsystemmodeling.oomph.createsyncproject.provider.CreateSyncProjectItemProviderAdapterFactory$SetupChildCreationExtender"/>
    </extension>
 
 </plugin>

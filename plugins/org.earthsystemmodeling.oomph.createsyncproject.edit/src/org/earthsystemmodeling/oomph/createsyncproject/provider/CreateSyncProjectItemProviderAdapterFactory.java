@@ -1,15 +1,12 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject.provider;
+package org.earthsystemmodeling.oomph.createsyncproject.provider;
 
 import org.eclipse.oomph.base.Annotation;
 import org.eclipse.oomph.base.BasePackage;
 import org.eclipse.oomph.base.util.BaseSwitch;
 import org.eclipse.oomph.setup.SetupPackage;
 import org.eclipse.oomph.setup.SetupTaskContainer;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectFactory;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage;
-import org.eclipse.oomph.setup.createsyncproject.util.CreateSyncProjectAdapterFactory;
 import org.eclipse.oomph.setup.util.SetupSwitch;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -32,6 +29,10 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.util.CreateSyncProjectAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -98,7 +99,7 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask} instances.
+   * This keeps track of the one adapter used for all {@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -106,7 +107,7 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
   protected CreateSyncProjectTaskItemProvider createSyncProjectTaskItemProvider;
 
   /**
-   * This creates an adapter for a {@link org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask}.
+   * This creates an adapter for a {@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -120,6 +121,31 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
     }
 
     return createSyncProjectTaskItemProvider;
+  }
+
+  /**
+   * This keeps track of the one adapter used for all {@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected CreateRemoteConnectionTaskItemProvider createRemoteConnectionTaskItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createCreateRemoteConnectionTaskAdapter()
+  {
+    if (createRemoteConnectionTaskItemProvider == null)
+    {
+      createRemoteConnectionTaskItemProvider = new CreateRemoteConnectionTaskItemProvider(this);
+    }
+
+    return createRemoteConnectionTaskItemProvider;
   }
 
   /**
@@ -256,7 +282,7 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
   }
 
   /**
-   * This disposes all of the item providers created by this factory. 
+   * This disposes all of the item providers created by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -266,6 +292,10 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
     if (createSyncProjectTaskItemProvider != null)
     {
       createSyncProjectTaskItemProvider.dispose();
+    }
+    if (createRemoteConnectionTaskItemProvider != null)
+    {
+      createRemoteConnectionTaskItemProvider.dispose();
     }
   }
 
@@ -323,6 +353,9 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
       {
         newChildDescriptors
             .add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, CreateSyncProjectFactory.eINSTANCE.createCreateSyncProjectTask()));
+
+        newChildDescriptors
+            .add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, CreateSyncProjectFactory.eINSTANCE.createCreateRemoteConnectionTask()));
 
         return null;
       }
@@ -416,6 +449,9 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
       {
         newChildDescriptors.add(
             createChildParameter(SetupPackage.Literals.SETUP_TASK_CONTAINER__SETUP_TASKS, CreateSyncProjectFactory.eINSTANCE.createCreateSyncProjectTask()));
+
+        newChildDescriptors.add(createChildParameter(SetupPackage.Literals.SETUP_TASK_CONTAINER__SETUP_TASKS,
+            CreateSyncProjectFactory.eINSTANCE.createCreateRemoteConnectionTask()));
 
         return null;
       }

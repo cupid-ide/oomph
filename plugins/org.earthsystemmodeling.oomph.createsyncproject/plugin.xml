@@ -10,7 +10,7 @@
       <!-- @generated CreateSyncProject -->
       <package
             uri="http://www.eclipse.org/oomph/setup/createsyncproject/1.0"
-            class="org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage"
+            class="org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage"
             genModel="model/CreateSyncProject.genmodel"/>
    </extension>
 

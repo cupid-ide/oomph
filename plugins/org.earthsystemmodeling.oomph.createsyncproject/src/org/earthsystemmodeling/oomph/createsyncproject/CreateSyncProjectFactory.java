@@ -1,6 +1,6 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject;
+package org.earthsystemmodeling.oomph.createsyncproject;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage
+ * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage
  * @generated
  */
 public interface CreateSyncProjectFactory extends EFactory
@@ -20,7 +20,7 @@ public interface CreateSyncProjectFactory extends EFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  CreateSyncProjectFactory eINSTANCE = org.eclipse.oomph.setup.createsyncproject.impl.CreateSyncProjectFactoryImpl.init();
+  CreateSyncProjectFactory eINSTANCE = org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectFactoryImpl.init();
 
   /**
    * Returns a new object of class '<em>Task</em>'.
@@ -30,6 +30,15 @@ public interface CreateSyncProjectFactory extends EFactory
    * @generated
    */
   CreateSyncProjectTask createCreateSyncProjectTask();
+
+  /**
+   * Returns a new object of class '<em>Create Remote Connection Task</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Create Remote Connection Task</em>'.
+   * @generated
+   */
+  CreateRemoteConnectionTask createCreateRemoteConnectionTask();
 
   /**
    * Returns the package supported by this factory.

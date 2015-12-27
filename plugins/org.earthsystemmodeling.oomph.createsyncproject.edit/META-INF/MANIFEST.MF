@@ -18,4 +18,4 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="[3.5.0,4.0.0)",
  org.eclipse.oomph.base.edit;bundle-version="[1.1.0,2.0.0)";visibility:=reexport,
  org.earthsystemmodeling.oomph.createsyncproject;bundle-version="[1.0.0,2.0.0)";visibility:=reexport
 Export-Package: org.earthsystemmodeling.oomph.createsyncproject.provider,
- org.eclipse.oomph.setup.createsyncproject.provider;version="1.0.0"
+ org.earthsystemmodeling.oomph.createsyncproject.provider;version="1.0.0"

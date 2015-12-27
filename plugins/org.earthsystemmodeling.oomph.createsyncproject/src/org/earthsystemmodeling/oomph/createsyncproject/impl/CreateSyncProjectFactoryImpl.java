@@ -1,16 +1,17 @@
 /**
  */
-package org.eclipse.oomph.setup.createsyncproject.impl;
-
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectFactory;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectPackage;
-import org.eclipse.oomph.setup.createsyncproject.CreateSyncProjectTask;
+package org.earthsystemmodeling.oomph.createsyncproject.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
+import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +67,8 @@ public class CreateSyncProjectFactoryImpl extends EFactoryImpl implements Create
     {
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK:
       return createCreateSyncProjectTask();
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK:
+      return createCreateRemoteConnectionTask();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -80,6 +83,17 @@ public class CreateSyncProjectFactoryImpl extends EFactoryImpl implements Create
   {
     CreateSyncProjectTaskImpl createSyncProjectTask = new CreateSyncProjectTaskImpl();
     return createSyncProjectTask;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CreateRemoteConnectionTask createCreateRemoteConnectionTask()
+  {
+    CreateRemoteConnectionTaskImpl createRemoteConnectionTask = new CreateRemoteConnectionTaskImpl();
+    return createRemoteConnectionTask;
   }
 
   /**
