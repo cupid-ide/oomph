@@ -12,6 +12,8 @@ package org.earthsystemmodeling.oomph.createsyncproject;
 
 import org.eclipse.oomph.setup.SetupTask;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Create Sync Project Task</b></em>'.
@@ -24,6 +26,7 @@ import org.eclipse.oomph.setup.SetupTask;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getProjectName <em>Project Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter <em>Filter</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask()
@@ -110,5 +113,21 @@ public interface CreateSyncProjectTask extends SetupTask
    * @generated
    */
   void setRemoteLocation(String value);
+
+  /**
+   * Returns the value of the '<em><b>Filter</b></em>' containment reference list.
+   * The list contents are of type {@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Filter</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Filter</em>' containment reference list.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_Filter()
+   * @model containment="true"
+   * @generated
+   */
+  EList<FileFilter> getFilter();
 
 } // CreateSyncProjectTask

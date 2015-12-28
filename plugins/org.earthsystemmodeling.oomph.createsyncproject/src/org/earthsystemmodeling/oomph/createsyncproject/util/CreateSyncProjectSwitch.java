@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.earthsystemmodeling.oomph.createsyncproject.FileFilter;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,6 +113,16 @@ public class CreateSyncProjectSwitch<T> extends Switch<T>
       }
       return result;
     }
+    case CreateSyncProjectPackage.FILE_FILTER:
+    {
+      FileFilter fileFilter = (FileFilter)theEObject;
+      T result = caseFileFilter(fileFilter);
+      if (result == null)
+      {
+        result = defaultCase(theEObject);
+      }
+      return result;
+    }
     default:
       return defaultCase(theEObject);
     }
@@ -145,6 +156,22 @@ public class CreateSyncProjectSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCreateRemoteConnectionTask(CreateRemoteConnectionTask object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>File Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>File Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFileFilter(FileFilter object)
   {
     return null;
   }

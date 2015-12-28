@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.earthsystemmodeling.oomph.createsyncproject.FileFilter;
 
 /**
  * <!-- begin-user-doc -->
@@ -89,6 +90,12 @@ public class CreateSyncProjectAdapterFactory extends AdapterFactoryImpl
     }
 
     @Override
+    public Adapter caseFileFilter(FileFilter object)
+    {
+      return createFileFilterAdapter();
+    }
+
+    @Override
     public Adapter caseModelElement(ModelElement object)
     {
       return createModelElementAdapter();
@@ -147,6 +154,21 @@ public class CreateSyncProjectAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCreateRemoteConnectionTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter <em>File Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.FileFilter
+   * @generated
+   */
+  public Adapter createFileFilterAdapter()
   {
     return null;
   }

@@ -7,6 +7,7 @@ import org.eclipse.oomph.setup.SetupPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -179,13 +180,22 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = SetupPackage.SETUP_TASK_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Filter</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_SYNC_PROJECT_TASK__FILTER = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
+  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.
@@ -324,6 +334,43 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_REMOTE_CONNECTION_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
 
   /**
+   * The meta object id for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl <em>File Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl
+   * @see org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectPackageImpl#getFileFilter()
+   * @generated
+   */
+  int FILE_FILTER = 2;
+
+  /**
+   * The feature id for the '<em><b>Pattern</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FILTER__PATTERN = 0;
+
+  /**
+   * The feature id for the '<em><b>Exclude</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FILTER__EXCLUDE = 1;
+
+  /**
+   * The number of structural features of the '<em>File Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FILTER_FEATURE_COUNT = 2;
+
+  /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask <em>Task</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -365,6 +412,17 @@ public interface CreateSyncProjectPackage extends EPackage
    * @generated
    */
   EAttribute getCreateSyncProjectTask_RemoteLocation();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Filter</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter()
+   * @see #getCreateSyncProjectTask()
+   * @generated
+   */
+  EReference getCreateSyncProjectTask_Filter();
 
   /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask <em>Create Remote Connection Task</em>}'.
@@ -419,6 +477,38 @@ public interface CreateSyncProjectPackage extends EPackage
    * @generated
    */
   EAttribute getCreateRemoteConnectionTask_Port();
+
+  /**
+   * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter <em>File Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>File Filter</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.FileFilter
+   * @generated
+   */
+  EClass getFileFilter();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter#getPattern <em>Pattern</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.FileFilter#getPattern()
+   * @see #getFileFilter()
+   * @generated
+   */
+  EAttribute getFileFilter_Pattern();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter#isExclude <em>Exclude</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exclude</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.FileFilter#isExclude()
+   * @see #getFileFilter()
+   * @generated
+   */
+  EAttribute getFileFilter_Exclude();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -478,6 +568,14 @@ public interface CreateSyncProjectPackage extends EPackage
     EAttribute CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = eINSTANCE.getCreateSyncProjectTask_RemoteLocation();
 
     /**
+     * The meta object literal for the '<em><b>Filter</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_SYNC_PROJECT_TASK__FILTER = eINSTANCE.getCreateSyncProjectTask_Filter();
+
+    /**
      * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -518,6 +616,32 @@ public interface CreateSyncProjectPackage extends EPackage
      * @generated
      */
     EAttribute CREATE_REMOTE_CONNECTION_TASK__PORT = eINSTANCE.getCreateRemoteConnectionTask_Port();
+
+    /**
+     * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl <em>File Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl
+     * @see org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectPackageImpl#getFileFilter()
+     * @generated
+     */
+    EClass FILE_FILTER = eINSTANCE.getFileFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE_FILTER__PATTERN = eINSTANCE.getFileFilter_Pattern();
+
+    /**
+     * The meta object literal for the '<em><b>Exclude</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE_FILTER__EXCLUDE = eINSTANCE.getFileFilter_Exclude();
 
   }
 

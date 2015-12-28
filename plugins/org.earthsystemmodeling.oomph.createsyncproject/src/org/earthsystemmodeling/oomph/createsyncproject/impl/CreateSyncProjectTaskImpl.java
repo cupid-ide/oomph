@@ -14,8 +14,13 @@ import org.eclipse.oomph.setup.SetupTaskContext;
 import org.eclipse.oomph.setup.impl.SetupTaskImpl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.cdt.core.CCorePlugin;
 import org.eclipse.cdt.core.CProjectNature;
@@ -41,6 +46,7 @@ import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.photran.internal.core.FProjectNature;
 import org.eclipse.ptp.internal.rdt.sync.cdt.ui.wizards.NewRemoteSyncProjectWizardOperation;
 import org.eclipse.ptp.internal.rdt.sync.ui.SynchronizeParticipantRegistry;
+import org.eclipse.ptp.rdt.sync.core.AbstractSyncFileFilter;
 import org.eclipse.ptp.rdt.sync.core.SyncFlag;
 import org.eclipse.ptp.rdt.sync.core.SyncManager;
 import org.eclipse.ptp.rdt.sync.ui.AbstractSynchronizeParticipant;
@@ -53,9 +59,11 @@ import org.eclipse.swt.widgets.Composite;
 
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.earthsystemmodeling.oomph.createsyncproject.FileFilter;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -70,6 +78,7 @@ import java.util.Set;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getProjectName <em>Project Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteLocation <em>Remote Location</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,6 +147,16 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * @ordered
    */
   protected String remoteLocation = REMOTE_LOCATION_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFilter()
+   * @generated
+   * @ordered
+   */
+  protected EList<FileFilter> filter;
 
   private static final int PRIORITY = PRIORITY_DEFAULT;
 
@@ -244,6 +263,36 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<FileFilter> getFilter()
+  {
+    if (filter == null)
+    {
+      filter = new EObjectContainmentEList<FileFilter>(FileFilter.class, this, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER);
+    }
+    return filter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+      return ((InternalEList<?>)getFilter()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -255,6 +304,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return getRemoteConnectionName();
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       return getRemoteLocation();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+      return getFilter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,6 +315,7 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -277,6 +329,10 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return;
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       setRemoteLocation((String)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+      getFilter().clear();
+      getFilter().addAll((Collection<? extends FileFilter>)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -301,6 +357,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       setRemoteLocation(REMOTE_LOCATION_EDEFAULT);
       return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+      getFilter().clear();
+      return;
     }
     super.eUnset(featureID);
   }
@@ -321,6 +380,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return REMOTE_CONNECTION_NAME_EDEFAULT == null ? remoteConnectionName != null : !REMOTE_CONNECTION_NAME_EDEFAULT.equals(remoteConnectionName);
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       return REMOTE_LOCATION_EDEFAULT == null ? remoteLocation != null : !REMOTE_LOCATION_EDEFAULT.equals(remoteLocation);
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+      return filter != null && !filter.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -516,7 +577,15 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
 
     };
 
-    NewRemoteSyncProjectWizardOperation.run(project, syncParticipant, null, localToolChains, remoteToolChains, new SubProgressMonitor(monitor, 2));
+    AbstractSyncFileFilter fileFilter = SyncManager.getDefaultFileFilter();
+    for (FileFilter ff : getFilter())
+    {
+      fileFilter.addPattern(ff.getPattern(), ff.isExclude());
+    }
+    // fileFilter.addPattern("something_to_exclude", true);
+    // fileFilter.addPattern("something_to_include", false);
+
+    NewRemoteSyncProjectWizardOperation.run(project, syncParticipant, fileFilter, localToolChains, remoteToolChains, new SubProgressMonitor(monitor, 2));
 
     // force a sync
     try
@@ -525,8 +594,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     }
     catch (CoreException ce)
     {
-      // CupidActivator.log(Status.ERROR, "Forcing initial synchronization", ce);
       // should still be able to continue
+      context.getPrompter().getUserCallback().information(false,
+          "Could not perform initial synchronization for project " + getProjectName() + " with remote connection " + getRemoteConnectionName());
     }
 
     monitor.done();

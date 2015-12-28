@@ -12,6 +12,7 @@ import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTas
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.earthsystemmodeling.oomph.createsyncproject.FileFilter;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +70,8 @@ public class CreateSyncProjectFactoryImpl extends EFactoryImpl implements Create
       return createCreateSyncProjectTask();
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK:
       return createCreateRemoteConnectionTask();
+    case CreateSyncProjectPackage.FILE_FILTER:
+      return createFileFilter();
     default:
       throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -94,6 +97,17 @@ public class CreateSyncProjectFactoryImpl extends EFactoryImpl implements Create
   {
     CreateRemoteConnectionTaskImpl createRemoteConnectionTask = new CreateRemoteConnectionTaskImpl();
     return createRemoteConnectionTask;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FileFilter createFileFilter()
+  {
+    FileFilterImpl fileFilter = new FileFilterImpl();
+    return fileFilter;
   }
 
   /**

@@ -7,12 +7,14 @@ import org.eclipse.oomph.setup.SetupPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.earthsystemmodeling.oomph.createsyncproject.FileFilter;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,13 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * @generated
    */
   private EClass createRemoteConnectionTaskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fileFilterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -150,6 +159,16 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCreateSyncProjectTask_Filter()
+  {
+    return (EReference)createSyncProjectTaskEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCreateRemoteConnectionTask()
   {
     return createRemoteConnectionTaskEClass;
@@ -200,6 +219,36 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFileFilter()
+  {
+    return fileFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFileFilter_Pattern()
+  {
+    return (EAttribute)fileFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFileFilter_Exclude()
+  {
+    return (EAttribute)fileFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public CreateSyncProjectFactory getCreateSyncProjectFactory()
   {
     return (CreateSyncProjectFactory)getEFactoryInstance();
@@ -232,12 +281,17 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__PROJECT_NAME);
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME);
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION);
+    createEReference(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__FILTER);
 
     createRemoteConnectionTaskEClass = createEClass(CREATE_REMOTE_CONNECTION_TASK);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__CONNECTION_NAME);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__HOST);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__USERNAME);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__PORT);
+
+    fileFilterEClass = createEClass(FILE_FILTER);
+    createEAttribute(fileFilterEClass, FILE_FILTER__PATTERN);
+    createEAttribute(fileFilterEClass, FILE_FILTER__EXCLUDE);
   }
 
   /**
@@ -286,6 +340,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateSyncProjectTask_RemoteLocation(), ecorePackage.getEString(), "remoteLocation", null, 1, 1, CreateSyncProjectTask.class,
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateSyncProjectTask_Filter(), getFileFilter(), null, "filter", null, 0, -1, CreateSyncProjectTask.class, !IS_TRANSIENT, !IS_VOLATILE,
+        IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createRemoteConnectionTaskEClass, CreateRemoteConnectionTask.class, "CreateRemoteConnectionTask", !IS_ABSTRACT, !IS_INTERFACE,
         IS_GENERATED_INSTANCE_CLASS);
@@ -297,6 +353,12 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateRemoteConnectionTask_Port(), ecorePackage.getEInt(), "port", "22", 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fileFilterEClass, FileFilter.class, "FileFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFileFilter_Pattern(), ecorePackage.getEString(), "pattern", null, 1, 1, FileFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFileFilter_Exclude(), ecorePackage.getEBoolean(), "exclude", "true", 1, 1, FileFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+        !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(

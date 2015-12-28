@@ -149,6 +149,31 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
   }
 
   /**
+   * This keeps track of the one adapter used for all {@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter} instances.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected FileFilterItemProvider fileFilterItemProvider;
+
+  /**
+   * This creates an adapter for a {@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Adapter createFileFilterAdapter()
+  {
+    if (fileFilterItemProvider == null)
+    {
+      fileFilterItemProvider = new FileFilterItemProvider(this);
+    }
+
+    return fileFilterItemProvider;
+  }
+
+  /**
    * This returns the root adapter factory that contains this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -297,6 +322,10 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
     {
       createRemoteConnectionTaskItemProvider.dispose();
     }
+    if (fileFilterItemProvider != null)
+    {
+      fileFilterItemProvider.dispose();
+    }
   }
 
   /**
@@ -356,6 +385,8 @@ public class CreateSyncProjectItemProviderAdapterFactory extends CreateSyncProje
 
         newChildDescriptors
             .add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, CreateSyncProjectFactory.eINSTANCE.createCreateRemoteConnectionTask()));
+
+        newChildDescriptors.add(createChildParameter(BasePackage.Literals.ANNOTATION__CONTENTS, CreateSyncProjectFactory.eINSTANCE.createFileFilter()));
 
         return null;
       }
