@@ -52,6 +52,7 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
       addConnectionNamePropertyDescriptor(object);
       addHostPropertyDescriptor(object);
       addUsernamePropertyDescriptor(object);
+      addPortPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -97,6 +98,20 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
         getString("_UI_CreateRemoteConnectionTask_username_feature"),
         getString("_UI_PropertyDescriptor_description", "_UI_CreateRemoteConnectionTask_username_feature", "_UI_CreateRemoteConnectionTask_type"),
         CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__USERNAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+  }
+
+  /**
+   * This adds a property descriptor for the Port feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addPortPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateRemoteConnectionTask_port_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateRemoteConnectionTask_port_feature", "_UI_CreateRemoteConnectionTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
   }
 
   /**
@@ -153,6 +168,7 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__CONNECTION_NAME:
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__HOST:
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
       return;
     }

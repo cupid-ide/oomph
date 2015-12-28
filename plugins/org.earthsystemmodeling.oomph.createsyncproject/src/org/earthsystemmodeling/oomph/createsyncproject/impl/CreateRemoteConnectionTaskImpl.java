@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.remote.core.IRemoteConnection;
 import org.eclipse.remote.core.IRemoteConnectionType;
 import org.eclipse.remote.core.IRemoteConnectionWorkingCopy;
 import org.eclipse.remote.core.IRemoteServicesManager;
@@ -32,6 +33,7 @@ import org.osgi.framework.ServiceReference;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getConnectionName <em>Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getHost <em>Host</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -99,6 +101,26 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * @ordered
    */
   protected String username = USERNAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPort()
+   * @generated
+   * @ordered
+   */
+  protected static final int PORT_EDEFAULT = 22;
+
+  /**
+   * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPort()
+   * @generated
+   * @ordered
+   */
+  protected int port = PORT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -202,6 +224,31 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * <!-- end-user-doc -->
    * @generated
    */
+  public int getPort()
+  {
+    return port;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPort(int newPort)
+  {
+    int oldPort = port;
+    port = newPort;
+    if (eNotificationRequired())
+    {
+      eNotify(new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT, oldPort, port));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -213,6 +260,8 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return getHost();
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
       return getUsername();
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
+      return getPort();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -235,6 +284,9 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return;
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
       setUsername((String)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
+      setPort((Integer)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -259,6 +311,9 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
       setUsername(USERNAME_EDEFAULT);
       return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
+      setPort(PORT_EDEFAULT);
+      return;
     }
     super.eUnset(featureID);
   }
@@ -279,6 +334,8 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return HOST_EDEFAULT == null ? host != null : !HOST_EDEFAULT.equals(host);
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
       return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
+      return port != PORT_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -303,6 +360,8 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     result.append(host);
     result.append(", username: ");
     result.append(username);
+    result.append(", port: ");
+    result.append(port);
     result.append(')');
     return result.toString();
   }
@@ -311,10 +370,33 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * (non-Javadoc)
    * @see org.eclipse.oomph.setup.SetupTask#isNeeded(org.eclipse.oomph.setup.SetupTaskContext)
    */
-  public boolean isNeeded(SetupTaskContext arg0) throws Exception
+  public boolean isNeeded(SetupTaskContext context) throws Exception
   {
-    // TODO Auto-generated method stub
-    return false;
+
+    IRemoteServicesManager remoteServicesManager = getRemoteServicesManager();
+    if (remoteServicesManager == null)
+    {
+      context.log("Cannot create remote connections because remote services are not installed.");
+      return false;
+    }
+
+    IRemoteConnectionType remoteConnType = remoteServicesManager.getConnectionType("org.eclipse.remote.JSch");
+    if (remoteConnType == null)
+    {
+      context.log("Cannot create remote connections because JSch connection type is not installed.");
+      return false;
+    }
+
+    IRemoteConnection remoteConn = remoteConnType.getConnection(getConnectionName());
+    if (remoteConn != null)
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+
   }
 
   /*
@@ -330,17 +412,13 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     IRemoteServicesManager remoteServicesManager = getRemoteServicesManager();
     if (remoteServicesManager == null)
     {
-      context.log("Cannot create remote connection because remote services are not installed.");
-      monitor.done();
-      return;
+      throw new Exception("Cannot create remote connection because remote services are not installed.");
     }
 
     IRemoteConnectionType remoteConnType = remoteServicesManager.getConnectionType("org.eclipse.remote.JSch");
     if (remoteConnType == null)
     {
-      context.log("Cannot create remote connection because the JSch connection type is not installed.");
-      monitor.done();
-      return;
+      throw new Exception("Cannot create remote connection because the JSch connection type is not installed.");
     }
 
     monitor.worked(1);
@@ -353,11 +431,12 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       remoteConnWorkingCopy.setAttribute(JSchConnection.ADDRESS_ATTR, getHost());
       remoteConnWorkingCopy.setAttribute(JSchConnection.USERNAME_ATTR, getUsername());
       remoteConnWorkingCopy.setAttribute(JSchConnection.IS_PASSWORD_ATTR, "true");
+      remoteConnWorkingCopy.setAttribute(JSchConnection.PORT_ATTR, Integer.toString(getPort()));
       remoteConnWorkingCopy.save();
     }
     else
     {
-      context.log("Cannot add remote connection.");
+      throw new Exception("Cannot add remote connections.");
     }
 
     monitor.worked(1);
@@ -368,6 +447,10 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
   private static IRemoteServicesManager getRemoteServicesManager()
   {
     BundleContext context = Platform.getBundle(PLUGIN_ID).getBundleContext();
+    if (context == null)
+    {
+      return null;
+    }
     ServiceReference<IRemoteServicesManager> ref = context.getServiceReference(IRemoteServicesManager.class);
     if (ref != null)
     {

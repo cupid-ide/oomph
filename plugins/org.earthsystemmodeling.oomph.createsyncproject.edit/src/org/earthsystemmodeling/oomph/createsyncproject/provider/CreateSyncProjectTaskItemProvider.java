@@ -50,6 +50,8 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
       super.getPropertyDescriptors(object);
 
       addProjectNamePropertyDescriptor(object);
+      addRemoteConnectionNamePropertyDescriptor(object);
+      addRemoteLocationPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -66,6 +68,36 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
         getString("_UI_CreateSyncProjectTask_projectName_feature"),
         getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_projectName_feature", "_UI_CreateSyncProjectTask_type"),
         CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+  }
+
+  /**
+   * This adds a property descriptor for the Remote Connection Name feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRemoteConnectionNamePropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateSyncProjectTask_remoteConnectionName_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_remoteConnectionName_feature", "_UI_CreateSyncProjectTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+        null, null));
+  }
+
+  /**
+   * This adds a property descriptor for the Remote Location feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addRemoteLocationPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateSyncProjectTask_remoteLocation_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_remoteLocation_feature", "_UI_CreateSyncProjectTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+        null));
   }
 
   /**
@@ -119,6 +151,8 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
     switch (notification.getFeatureID(CreateSyncProjectTask.class))
     {
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
       return;
     }

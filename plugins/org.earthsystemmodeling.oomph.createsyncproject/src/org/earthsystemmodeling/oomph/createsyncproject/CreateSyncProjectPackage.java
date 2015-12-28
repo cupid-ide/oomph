@@ -161,13 +161,31 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_SYNC_PROJECT_TASK__PROJECT_NAME = SetupPackage.SETUP_TASK_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Remote Connection Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME = SetupPackage.SETUP_TASK_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Remote Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = SetupPackage.SETUP_TASK_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 1;
+  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.
@@ -288,13 +306,22 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_REMOTE_CONNECTION_TASK__USERNAME = SetupPackage.SETUP_TASK_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Port</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_REMOTE_CONNECTION_TASK__PORT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
+
+  /**
    * The number of structural features of the '<em>Create Remote Connection Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_REMOTE_CONNECTION_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
+  int CREATE_REMOTE_CONNECTION_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
 
   /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask <em>Task</em>}'.
@@ -316,6 +343,28 @@ public interface CreateSyncProjectPackage extends EPackage
    * @generated
    */
   EAttribute getCreateSyncProjectTask_ProjectName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Remote Connection Name</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName()
+   * @see #getCreateSyncProjectTask()
+   * @generated
+   */
+  EAttribute getCreateSyncProjectTask_RemoteConnectionName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Remote Location</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation()
+   * @see #getCreateSyncProjectTask()
+   * @generated
+   */
+  EAttribute getCreateSyncProjectTask_RemoteLocation();
 
   /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask <em>Create Remote Connection Task</em>}'.
@@ -361,6 +410,17 @@ public interface CreateSyncProjectPackage extends EPackage
   EAttribute getCreateRemoteConnectionTask_Username();
 
   /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort <em>Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Port</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort()
+   * @see #getCreateRemoteConnectionTask()
+   * @generated
+   */
+  EAttribute getCreateRemoteConnectionTask_Port();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -402,6 +462,22 @@ public interface CreateSyncProjectPackage extends EPackage
     EAttribute CREATE_SYNC_PROJECT_TASK__PROJECT_NAME = eINSTANCE.getCreateSyncProjectTask_ProjectName();
 
     /**
+     * The meta object literal for the '<em><b>Remote Connection Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME = eINSTANCE.getCreateSyncProjectTask_RemoteConnectionName();
+
+    /**
+     * The meta object literal for the '<em><b>Remote Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = eINSTANCE.getCreateSyncProjectTask_RemoteLocation();
+
+    /**
      * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -434,6 +510,14 @@ public interface CreateSyncProjectPackage extends EPackage
      * @generated
      */
     EAttribute CREATE_REMOTE_CONNECTION_TASK__USERNAME = eINSTANCE.getCreateRemoteConnectionTask_Username();
+
+    /**
+     * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_REMOTE_CONNECTION_TASK__PORT = eINSTANCE.getCreateRemoteConnectionTask_Port();
 
   }
 

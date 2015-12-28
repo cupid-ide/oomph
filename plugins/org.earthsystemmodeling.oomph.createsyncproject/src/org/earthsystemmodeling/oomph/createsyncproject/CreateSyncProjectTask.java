@@ -22,6 +22,8 @@ import org.eclipse.oomph.setup.SetupTask;
  * </p>
  * <ul>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask()
@@ -56,5 +58,57 @@ public interface CreateSyncProjectTask extends SetupTask
    * @generated
    */
   void setProjectName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Remote Connection Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Remote Connection Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Remote Connection Name</em>' attribute.
+   * @see #setRemoteConnectionName(String)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_RemoteConnectionName()
+   * @model required="true"
+   * @generated
+   */
+  String getRemoteConnectionName();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Remote Connection Name</em>' attribute.
+   * @see #getRemoteConnectionName()
+   * @generated
+   */
+  void setRemoteConnectionName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Remote Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Remote Location</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Remote Location</em>' attribute.
+   * @see #setRemoteLocation(String)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_RemoteLocation()
+   * @model required="true"
+   * @generated
+   */
+  String getRemoteLocation();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Remote Location</em>' attribute.
+   * @see #getRemoteLocation()
+   * @generated
+   */
+  void setRemoteLocation(String value);
 
 } // CreateSyncProjectTask

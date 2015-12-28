@@ -16,6 +16,7 @@ import org.eclipse.oomph.setup.SetupTask;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getConnectionName <em>Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getHost <em>Host</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask()
@@ -101,5 +102,32 @@ public interface CreateRemoteConnectionTask extends SetupTask
    * @generated
    */
   void setUsername(String value);
+
+  /**
+   * Returns the value of the '<em><b>Port</b></em>' attribute.
+   * The default value is <code>"22"</code>.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Port</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Port</em>' attribute.
+   * @see #setPort(int)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask_Port()
+   * @model default="22" required="true"
+   * @generated
+   */
+  int getPort();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort <em>Port</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Port</em>' attribute.
+   * @see #getPort()
+   * @generated
+   */
+  void setPort(int value);
 
 } // CreateRemoteConnectionTask

@@ -33,12 +33,31 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.photran.internal.core.FProjectNature;
+import org.eclipse.ptp.internal.rdt.sync.cdt.ui.wizards.NewRemoteSyncProjectWizardOperation;
+import org.eclipse.ptp.internal.rdt.sync.ui.SynchronizeParticipantRegistry;
+import org.eclipse.ptp.rdt.sync.core.SyncFlag;
+import org.eclipse.ptp.rdt.sync.core.SyncManager;
+import org.eclipse.ptp.rdt.sync.ui.AbstractSynchronizeParticipant;
+import org.eclipse.ptp.rdt.sync.ui.ISynchronizeParticipant;
+import org.eclipse.ptp.rdt.sync.ui.ISynchronizeParticipantDescriptor;
+import org.eclipse.remote.core.IRemoteConnection;
+import org.eclipse.remote.core.IRemoteConnectionType;
+import org.eclipse.remote.core.IRemoteServicesManager;
+import org.eclipse.swt.widgets.Composite;
 
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage;
 import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,12 +68,17 @@ import org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask;
  * </p>
  * <ul>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteLocation <em>Remote Location</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSyncProjectTask
 {
+
+  public static final String PLUGIN_ID = "org.earthsystemmodeling.oomph.createsyncproject";
+
   /**
    * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -74,6 +98,46 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * @ordered
    */
   protected String projectName = PROJECT_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getRemoteConnectionName() <em>Remote Connection Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRemoteConnectionName()
+   * @generated
+   * @ordered
+   */
+  protected static final String REMOTE_CONNECTION_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRemoteConnectionName() <em>Remote Connection Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRemoteConnectionName()
+   * @generated
+   * @ordered
+   */
+  protected String remoteConnectionName = REMOTE_CONNECTION_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getRemoteLocation() <em>Remote Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRemoteLocation()
+   * @generated
+   * @ordered
+   */
+  protected static final String REMOTE_LOCATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getRemoteLocation() <em>Remote Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRemoteLocation()
+   * @generated
+   * @ordered
+   */
+  protected String remoteLocation = REMOTE_LOCATION_EDEFAULT;
 
   private static final int PRIORITY = PRIORITY_DEFAULT;
 
@@ -128,6 +192,58 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getRemoteConnectionName()
+  {
+    return remoteConnectionName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRemoteConnectionName(String newRemoteConnectionName)
+  {
+    String oldRemoteConnectionName = remoteConnectionName;
+    remoteConnectionName = newRemoteConnectionName;
+    if (eNotificationRequired())
+    {
+      eNotify(new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME, oldRemoteConnectionName,
+          remoteConnectionName));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getRemoteLocation()
+  {
+    return remoteLocation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setRemoteLocation(String newRemoteLocation)
+  {
+    String oldRemoteLocation = remoteLocation;
+    remoteLocation = newRemoteLocation;
+    if (eNotificationRequired())
+    {
+      eNotify(
+          new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION, oldRemoteLocation, remoteLocation));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -135,6 +251,10 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     {
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
       return getProjectName();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
+      return getRemoteConnectionName();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
+      return getRemoteLocation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,6 +271,12 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     {
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
       setProjectName((String)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
+      setRemoteConnectionName((String)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
+      setRemoteLocation((String)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -169,6 +295,12 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
       setProjectName(PROJECT_NAME_EDEFAULT);
       return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
+      setRemoteConnectionName(REMOTE_CONNECTION_NAME_EDEFAULT);
+      return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
+      setRemoteLocation(REMOTE_LOCATION_EDEFAULT);
+      return;
     }
     super.eUnset(featureID);
   }
@@ -185,6 +317,10 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     {
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
       return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
+      return REMOTE_CONNECTION_NAME_EDEFAULT == null ? remoteConnectionName != null : !REMOTE_CONNECTION_NAME_EDEFAULT.equals(remoteConnectionName);
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
+      return REMOTE_LOCATION_EDEFAULT == null ? remoteLocation != null : !REMOTE_LOCATION_EDEFAULT.equals(remoteLocation);
     }
     return super.eIsSet(featureID);
   }
@@ -205,6 +341,10 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (projectName: ");
     result.append(projectName);
+    result.append(", remoteConnectionName: ");
+    result.append(remoteConnectionName);
+    result.append(", remoteLocation: ");
+    result.append(remoteLocation);
     result.append(')');
     return result.toString();
   }
@@ -245,7 +385,6 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     IToolChain toolchain = null;
     for (IToolChain tc : tcs)
     {
-      // System.out.println("Toolchain: " + tc.getName() + " : " + tc.getId());
       // Linux GCC --> cdt.managedbuild.toolchain.gnu.base
       // GCC Fortran --> photran.managedbuild.toolchain.gnu.fortran.exe.debug
       if (tc.getId().equals("org.eclipse.ptp.rdt.managedbuild.toolchain.gnu.base"))
@@ -255,7 +394,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     }
     assert toolchain != null;
 
-    Configuration cfg = new Configuration(mProj, (ToolChain)toolchain, "org.earthsystemmodeling.cupid.config", "Cupid Configuration");
+    String configId = "org.earthsystemmodeling.cupid.config." + getProjectName().replaceAll("[^A-Za-z0-9]", "");
+    Configuration cfg = new Configuration(mProj, (ToolChain)toolchain, configId, getProjectName() + " Configuration");
 
     IBuilder bld = cfg.getEditableBuilder();
     assert bld != null;
@@ -274,14 +414,149 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     mngr.setProjectDescription(project, des);
     monitor.worked(1);
 
+    // make synchronized project
+
+    monitor.subTask("Setting up project synchronization...");
+
+    ISynchronizeParticipantDescriptor syncDescriptor = null;
+    ISynchronizeParticipantDescriptor[] providers = SynchronizeParticipantRegistry.getDescriptors();
+    for (ISynchronizeParticipantDescriptor p : providers)
+    {
+      if (p.getId().equals("org.eclipse.ptp.rdt.sync.git.ui.gitParticipant"))
+      {
+        syncDescriptor = p;
+        break;
+      }
+    }
+
+    if (syncDescriptor == null)
+    {
+      throw new Exception("Error creating synchronized project: unable to find Git sync participant.");
+    }
+
+    // String remoteDir = selectedElem.getChildTextNormalize("remotedir");
+    // if (remoteDir == null || remoteDir.length() < 1)
+    // {
+    // remoteDir = "/home/sgeadmin/" + project.getName();
+    // }
+    // syncParticipant = new CupidGitParticipant(syncDescriptor, remoteConn, remoteDir);
+    // CupidActivator.log("Created CupidGitParticipant");
+
+    Set<String> localToolChains = new HashSet<String>();
+    Set<String> remoteToolChains = new HashSet<String>();
+
+    if (toolchain != null)
+    {
+      localToolChains.add(toolchain.getName());
+      remoteToolChains.add(toolchain.getName());
+    }
+
+    // find remote connection by name
+    assert getRemoteConnectionName() != null;
+    assert getRemoteLocation() != null;
+
+    IRemoteServicesManager remoteServicesManager = getRemoteServicesManager();
+    if (remoteServicesManager == null)
+    {
+      throw new Exception("Error getting remote services manager.");
+    }
+
+    IRemoteConnectionType remoteConnType = remoteServicesManager.getConnectionType("org.eclipse.remote.JSch");
+    if (remoteConnType == null)
+    {
+      throw new Exception("Erroring getting JSch connection type.");
+    }
+
+    final IRemoteConnection remoteConn = remoteConnType.getConnection(getRemoteConnectionName());
+    if (remoteConn == null)
+    {
+      throw new Exception("Cannot find remote connection with name: " + getRemoteConnectionName());
+    }
+
+    ISynchronizeParticipant syncParticipant = new AbstractSynchronizeParticipant(syncDescriptor)
+    {
+
+      public void setProjectName(String projectName)
+      {
+        // TODO Auto-generated method stub
+
+      }
+
+      public boolean isConfigComplete()
+      {
+        return true;
+      }
+
+      public String getSyncConfigName()
+      {
+        return remoteConn.getName();
+      }
+
+      public String getLocation()
+      {
+        return getRemoteLocation();
+      }
+
+      public String getErrorMessage()
+      {
+        // TODO Auto-generated method stub
+        return null;
+      }
+
+      public IRemoteConnection getConnection()
+      {
+        return remoteConn;
+      }
+
+      public void createConfigurationArea(Composite parent, IRunnableContext context)
+      {
+        // TODO Auto-generated method stub
+
+      }
+
+    };
+
+    NewRemoteSyncProjectWizardOperation.run(project, syncParticipant, null, localToolChains, remoteToolChains, new SubProgressMonitor(monitor, 2));
+
+    // force a sync
+    try
+    {
+      SyncManager.syncBlocking(null, project, SyncFlag.BOTH, new SubProgressMonitor(monitor, 7));
+    }
+    catch (CoreException ce)
+    {
+      // CupidActivator.log(Status.ERROR, "Forcing initial synchronization", ce);
+      // should still be able to continue
+    }
+
     monitor.done();
+
     context.log("Done creating synchronized project");
+
   }
 
   @Override
   public void dispose()
   {
     // TODO Implement CreateSyncProjectTaskImpl.perform() or remove this override if not needed
+  }
+
+  private static IRemoteServicesManager getRemoteServicesManager()
+  {
+    BundleContext context = Platform.getBundle(PLUGIN_ID).getBundleContext();
+    if (context == null)
+    {
+      return null;
+    }
+    ServiceReference<IRemoteServicesManager> ref = context.getServiceReference(IRemoteServicesManager.class);
+    if (ref != null)
+    {
+      return context.getService(ref);
+    }
+    else
+    {
+      return null;
+    }
   }
 
 } // CreateSyncProjectTaskImpl

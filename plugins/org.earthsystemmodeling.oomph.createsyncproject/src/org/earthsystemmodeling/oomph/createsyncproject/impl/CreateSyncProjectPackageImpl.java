@@ -130,6 +130,26 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCreateSyncProjectTask_RemoteConnectionName()
+  {
+    return (EAttribute)createSyncProjectTaskEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateSyncProjectTask_RemoteLocation()
+  {
+    return (EAttribute)createSyncProjectTaskEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCreateRemoteConnectionTask()
   {
     return createRemoteConnectionTaskEClass;
@@ -170,6 +190,16 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCreateRemoteConnectionTask_Port()
+  {
+    return (EAttribute)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public CreateSyncProjectFactory getCreateSyncProjectFactory()
   {
     return (CreateSyncProjectFactory)getEFactoryInstance();
@@ -200,11 +230,14 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     // Create classes and their features
     createSyncProjectTaskEClass = createEClass(CREATE_SYNC_PROJECT_TASK);
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__PROJECT_NAME);
+    createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME);
+    createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION);
 
     createRemoteConnectionTaskEClass = createEClass(CREATE_REMOTE_CONNECTION_TASK);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__CONNECTION_NAME);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__HOST);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__USERNAME);
+    createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__PORT);
   }
 
   /**
@@ -249,6 +282,10 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     initEClass(createSyncProjectTaskEClass, CreateSyncProjectTask.class, "CreateSyncProjectTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCreateSyncProjectTask_ProjectName(), ecorePackage.getEString(), "projectName", null, 1, 1, CreateSyncProjectTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateSyncProjectTask_RemoteConnectionName(), ecorePackage.getEString(), "remoteConnectionName", null, 1, 1, CreateSyncProjectTask.class,
+        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateSyncProjectTask_RemoteLocation(), ecorePackage.getEString(), "remoteLocation", null, 1, 1, CreateSyncProjectTask.class,
+        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createRemoteConnectionTaskEClass, CreateRemoteConnectionTask.class, "CreateRemoteConnectionTask", !IS_ABSTRACT, !IS_INTERFACE,
         IS_GENERATED_INSTANCE_CLASS);
@@ -257,6 +294,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     initEAttribute(getCreateRemoteConnectionTask_Host(), ecorePackage.getEString(), "host", null, 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateRemoteConnectionTask_Username(), ecorePackage.getEString(), "username", null, 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreateRemoteConnectionTask_Port(), ecorePackage.getEInt(), "port", "22", 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
