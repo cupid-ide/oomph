@@ -110,7 +110,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * @generated
    * @ordered
    */
-  protected static final int PORT_EDEFAULT = 22;
+  protected static final String PORT_EDEFAULT = "22";
 
   /**
    * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -120,7 +120,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * @generated
    * @ordered
    */
-  protected int port = PORT_EDEFAULT;
+  protected String port = PORT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -224,7 +224,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getPort()
+  public String getPort()
   {
     return port;
   }
@@ -234,9 +234,9 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPort(int newPort)
+  public void setPort(String newPort)
   {
-    int oldPort = port;
+    String oldPort = port;
     port = newPort;
     if (eNotificationRequired())
     {
@@ -286,7 +286,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       setUsername((String)newValue);
       return;
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
-      setPort((Integer)newValue);
+      setPort((String)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -335,7 +335,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
       return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
-      return port != PORT_EDEFAULT;
+      return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
     }
     return super.eIsSet(featureID);
   }
@@ -431,7 +431,7 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       remoteConnWorkingCopy.setAttribute(JSchConnection.ADDRESS_ATTR, getHost());
       remoteConnWorkingCopy.setAttribute(JSchConnection.USERNAME_ATTR, getUsername());
       remoteConnWorkingCopy.setAttribute(JSchConnection.IS_PASSWORD_ATTR, "true");
-      remoteConnWorkingCopy.setAttribute(JSchConnection.PORT_ATTR, Integer.toString(getPort()));
+      remoteConnWorkingCopy.setAttribute(JSchConnection.PORT_ATTR, getPort());
       remoteConnWorkingCopy.save();
     }
     else

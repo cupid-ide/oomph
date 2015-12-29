@@ -113,12 +113,12 @@ public interface CreateRemoteConnectionTask extends SetupTask
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Port</em>' attribute.
-   * @see #setPort(int)
+   * @see #setPort(String)
    * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask_Port()
    * @model default="22" required="true"
    * @generated
    */
-  int getPort();
+  String getPort();
 
   /**
    * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort <em>Port</em>}' attribute.
@@ -128,6 +128,6 @@ public interface CreateRemoteConnectionTask extends SetupTask
    * @see #getPort()
    * @generated
    */
-  void setPort(int value);
+  void setPort(String value);
 
 } // CreateRemoteConnectionTask

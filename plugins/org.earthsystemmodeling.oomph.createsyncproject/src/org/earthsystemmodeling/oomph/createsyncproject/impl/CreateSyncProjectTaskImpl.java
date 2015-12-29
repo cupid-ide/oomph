@@ -539,7 +539,6 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
 
       public void setProjectName(String projectName)
       {
-        // TODO Auto-generated method stub
 
       }
 
@@ -582,21 +581,24 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     {
       fileFilter.addPattern(ff.getPattern(), ff.isExclude());
     }
-    // fileFilter.addPattern("something_to_exclude", true);
-    // fileFilter.addPattern("something_to_include", false);
 
     NewRemoteSyncProjectWizardOperation.run(project, syncParticipant, fileFilter, localToolChains, remoteToolChains, new SubProgressMonitor(monitor, 2));
 
     // force a sync
-    try
+    boolean firstSync = true; // context.getPrompter().getUserCallback().question("Perform an initial sync?");
+
+    if (firstSync)
     {
-      SyncManager.syncBlocking(null, project, SyncFlag.BOTH, new SubProgressMonitor(monitor, 7));
-    }
-    catch (CoreException ce)
-    {
-      // should still be able to continue
-      context.getPrompter().getUserCallback().information(false,
-          "Could not perform initial synchronization for project " + getProjectName() + " with remote connection " + getRemoteConnectionName());
+      try
+      {
+        SyncManager.syncBlocking(null, project, SyncFlag.BOTH, new SubProgressMonitor(monitor, 7));
+      }
+      catch (CoreException ce)
+      {
+        String msg = "Could not perform initial synchronization for project " + getProjectName() + " with remote connection " + getRemoteConnectionName();
+        context.log(msg);
+        context.getPrompter().getUserCallback().information(false, msg);
+      }
     }
 
     monitor.done();

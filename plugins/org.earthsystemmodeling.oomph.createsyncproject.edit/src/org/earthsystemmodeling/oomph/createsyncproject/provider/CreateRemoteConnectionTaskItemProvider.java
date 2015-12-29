@@ -111,7 +111,7 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
     itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
         getString("_UI_CreateRemoteConnectionTask_port_feature"),
         getString("_UI_PropertyDescriptor_description", "_UI_CreateRemoteConnectionTask_port_feature", "_UI_CreateRemoteConnectionTask_type"),
-        CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__PORT, true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+        CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__PORT, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
   }
 
   /**

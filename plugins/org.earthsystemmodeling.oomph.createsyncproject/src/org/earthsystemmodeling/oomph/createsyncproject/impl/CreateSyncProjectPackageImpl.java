@@ -351,7 +351,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateRemoteConnectionTask_Username(), ecorePackage.getEString(), "username", null, 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCreateRemoteConnectionTask_Port(), ecorePackage.getEInt(), "port", "22", 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
+    initEAttribute(getCreateRemoteConnectionTask_Port(), ecorePackage.getEString(), "port", "22", 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fileFilterEClass, FileFilter.class, "FileFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
