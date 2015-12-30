@@ -23,8 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore schemaLocation='https://raw.githubusercontent.com/cupid-ide/oomph/master/plugins/org.earthsystemmodeling.oomph.createsyncproject/model/CreateSyncProject.ecore'"
- *        annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='setup.createsyncproject.p2' repository='file:/home/rocky/eclipse/cupiddev-v0-2/git/oomph/releng/org.earthsystemmodeling.oomph.releng.p2/target/repository' installableUnits='org.earthsystemmodeling.oomph.createsyncproject.feature.group'"
- *        annotation="http://www.eclipse.org/oomph/base/LabelProvider imageBaseURI='http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/plugins/org.earthsystemmodeling.oomph.createsyncproject.edit/icons/full/obj16'"
+ *        annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='setup.createsyncproject.p2' repository='http://www.earthsystemmodeling.org/cupid/oomph/mars' installableUnits='org.earthsystemmodeling.oomph.createsyncproject.feature.group'"
  * @generated
  */
 public interface CreateSyncProjectPackage extends EPackage

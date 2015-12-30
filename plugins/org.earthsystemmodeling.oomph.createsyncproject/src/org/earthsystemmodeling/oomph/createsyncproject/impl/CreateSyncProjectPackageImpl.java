@@ -369,8 +369,6 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     createEcoreAnnotations();
     // http://www.eclipse.org/oomph/setup/Enablement
     createEnablementAnnotations();
-    // http://www.eclipse.org/oomph/base/LabelProvider
-    createLabelProviderAnnotations();
     // http://www.eclipse.org/oomph/setup/ValidTriggers
     createValidTriggersAnnotations();
   }
@@ -397,23 +395,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
   protected void createEnablementAnnotations()
   {
     String source = "http://www.eclipse.org/oomph/setup/Enablement";
-    addAnnotation(this, source,
-        new String[] { "variableName", "setup.createsyncproject.p2", "repository",
-            "file:/home/rocky/eclipse/cupiddev-v0-2/git/oomph/releng/org.earthsystemmodeling.oomph.releng.p2/target/repository", "installableUnits",
-            "org.earthsystemmodeling.oomph.createsyncproject.feature.group" });
-  }
-
-  /**
-   * Initializes the annotations for <b>http://www.eclipse.org/oomph/base/LabelProvider</b>.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void createLabelProviderAnnotations()
-  {
-    String source = "http://www.eclipse.org/oomph/base/LabelProvider";
-    addAnnotation(this, source, new String[] { "imageBaseURI",
-        "http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/plugins/org.earthsystemmodeling.oomph.createsyncproject.edit/icons/full/obj16" });
+    addAnnotation(this, source, new String[] { "variableName", "setup.createsyncproject.p2", "repository",
+        "http://www.earthsystemmodeling.org/cupid/oomph/mars", "installableUnits", "org.earthsystemmodeling.oomph.createsyncproject.feature.group" });
   }
 
   /**
