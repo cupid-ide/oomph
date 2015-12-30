@@ -418,8 +418,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
 
   public boolean isNeeded(SetupTaskContext context) throws Exception
   {
-    // TODO Implement CreateSyncProjectTaskImpl.isNeeded()
-    return true;
+    IWorkspace workspace = ResourcesPlugin.getWorkspace();
+    IProject projectHandle = workspace.getRoot().getProject(getProjectName());
+    return !projectHandle.exists();
   }
 
   @SuppressWarnings("restriction")
@@ -494,14 +495,6 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     {
       throw new Exception("Error creating synchronized project: unable to find Git sync participant.");
     }
-
-    // String remoteDir = selectedElem.getChildTextNormalize("remotedir");
-    // if (remoteDir == null || remoteDir.length() < 1)
-    // {
-    // remoteDir = "/home/sgeadmin/" + project.getName();
-    // }
-    // syncParticipant = new CupidGitParticipant(syncDescriptor, remoteConn, remoteDir);
-    // CupidActivator.log("Created CupidGitParticipant");
 
     Set<String> localToolChains = new HashSet<String>();
     Set<String> remoteToolChains = new HashSet<String>();
