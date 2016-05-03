@@ -219,6 +219,26 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getCreateRemoteConnectionTask_ProxyConnection()
+  {
+    return (EReference)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCreateRemoteConnectionTask_ProxyCommand()
+  {
+    return (EAttribute)createRemoteConnectionTaskEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getFileFilter()
   {
     return fileFilterEClass;
@@ -288,6 +308,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__HOST);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__USERNAME);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__PORT);
+    createEReference(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION);
+    createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND);
 
     fileFilterEClass = createEClass(FILE_FILTER);
     createEAttribute(fileFilterEClass, FILE_FILTER__PATTERN);
@@ -353,6 +375,11 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateRemoteConnectionTask_Port(), ecorePackage.getEString(), "port", "22", 1, 1, CreateRemoteConnectionTask.class, !IS_TRANSIENT,
         !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateRemoteConnectionTask_ProxyConnection(), getCreateRemoteConnectionTask(), null, "proxyConnection", null, 0, 1,
+        CreateRemoteConnectionTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+        IS_ORDERED);
+    initEAttribute(getCreateRemoteConnectionTask_ProxyCommand(), ecorePackage.getEString(), "proxyCommand", null, 0, 1, CreateRemoteConnectionTask.class,
+        !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fileFilterEClass, FileFilter.class, "FileFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFileFilter_Pattern(), ecorePackage.getEString(), "pattern", null, 1, 1, FileFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,

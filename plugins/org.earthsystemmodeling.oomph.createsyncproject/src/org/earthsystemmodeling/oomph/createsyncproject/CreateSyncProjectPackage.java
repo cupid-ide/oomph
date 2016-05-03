@@ -342,13 +342,31 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_REMOTE_CONNECTION_TASK__PORT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Proxy Connection</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Proxy Command</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND = SetupPackage.SETUP_TASK_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Create Remote Connection Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_REMOTE_CONNECTION_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
+  int CREATE_REMOTE_CONNECTION_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl <em>File Filter</em>}' class.
@@ -496,6 +514,28 @@ public interface CreateSyncProjectPackage extends EPackage
   EAttribute getCreateRemoteConnectionTask_Port();
 
   /**
+   * Returns the meta object for the reference '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyConnection <em>Proxy Connection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Proxy Connection</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyConnection()
+   * @see #getCreateRemoteConnectionTask()
+   * @generated
+   */
+  EReference getCreateRemoteConnectionTask_ProxyConnection();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyCommand <em>Proxy Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Proxy Command</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyCommand()
+   * @see #getCreateRemoteConnectionTask()
+   * @generated
+   */
+  EAttribute getCreateRemoteConnectionTask_ProxyCommand();
+
+  /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter <em>File Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -633,6 +673,22 @@ public interface CreateSyncProjectPackage extends EPackage
      * @generated
      */
     EAttribute CREATE_REMOTE_CONNECTION_TASK__PORT = eINSTANCE.getCreateRemoteConnectionTask_Port();
+
+    /**
+     * The meta object literal for the '<em><b>Proxy Connection</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION = eINSTANCE.getCreateRemoteConnectionTask_ProxyConnection();
+
+    /**
+     * The meta object literal for the '<em><b>Proxy Command</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND = eINSTANCE.getCreateRemoteConnectionTask_ProxyCommand();
 
     /**
      * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.FileFilterImpl <em>File Filter</em>}' class.

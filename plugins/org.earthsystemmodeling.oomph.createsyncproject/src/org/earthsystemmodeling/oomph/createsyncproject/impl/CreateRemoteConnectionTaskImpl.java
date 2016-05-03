@@ -7,6 +7,7 @@ import org.eclipse.oomph.setup.impl.SetupTaskImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -34,6 +35,8 @@ import org.osgi.framework.ServiceReference;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getHost <em>Host</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getUsername <em>Username</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getProxyConnection <em>Proxy Connection</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl#getProxyCommand <em>Proxy Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,6 +124,36 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * @ordered
    */
   protected String port = PORT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getProxyConnection() <em>Proxy Connection</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProxyConnection()
+   * @generated
+   * @ordered
+   */
+  protected CreateRemoteConnectionTask proxyConnection;
+
+  /**
+   * The default value of the '{@link #getProxyCommand() <em>Proxy Command</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProxyCommand()
+   * @generated
+   * @ordered
+   */
+  protected static final String PROXY_COMMAND_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getProxyCommand() <em>Proxy Command</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProxyCommand()
+   * @generated
+   * @ordered
+   */
+  protected String proxyCommand = PROXY_COMMAND_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -249,6 +282,81 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
    * <!-- end-user-doc -->
    * @generated
    */
+  public CreateRemoteConnectionTask getProxyConnection()
+  {
+    if (proxyConnection != null && proxyConnection.eIsProxy())
+    {
+      InternalEObject oldProxyConnection = (InternalEObject)proxyConnection;
+      proxyConnection = (CreateRemoteConnectionTask)eResolveProxy(oldProxyConnection);
+      if (proxyConnection != oldProxyConnection)
+      {
+        if (eNotificationRequired())
+        {
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION,
+              oldProxyConnection, proxyConnection));
+        }
+      }
+    }
+    return proxyConnection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CreateRemoteConnectionTask basicGetProxyConnection()
+  {
+    return proxyConnection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProxyConnection(CreateRemoteConnectionTask newProxyConnection)
+  {
+    CreateRemoteConnectionTask oldProxyConnection = proxyConnection;
+    proxyConnection = newProxyConnection;
+    if (eNotificationRequired())
+    {
+      eNotify(new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION, oldProxyConnection,
+          proxyConnection));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getProxyCommand()
+  {
+    return proxyCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProxyCommand(String newProxyCommand)
+  {
+    String oldProxyCommand = proxyCommand;
+    proxyCommand = newProxyCommand;
+    if (eNotificationRequired())
+    {
+      eNotify(
+          new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND, oldProxyCommand, proxyCommand));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -262,6 +370,14 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return getUsername();
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
       return getPort();
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION:
+      if (resolve)
+      {
+        return getProxyConnection();
+      }
+      return basicGetProxyConnection();
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND:
+      return getProxyCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -287,6 +403,12 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return;
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
       setPort((String)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION:
+      setProxyConnection((CreateRemoteConnectionTask)newValue);
+      return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND:
+      setProxyCommand((String)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -314,6 +436,12 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
       setPort(PORT_EDEFAULT);
       return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION:
+      setProxyConnection((CreateRemoteConnectionTask)null);
+      return;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND:
+      setProxyCommand(PROXY_COMMAND_EDEFAULT);
+      return;
     }
     super.eUnset(featureID);
   }
@@ -336,6 +464,10 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
       return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION:
+      return proxyConnection != null;
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND:
+      return PROXY_COMMAND_EDEFAULT == null ? proxyCommand != null : !PROXY_COMMAND_EDEFAULT.equals(proxyCommand);
     }
     return super.eIsSet(featureID);
   }
@@ -362,6 +494,8 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
     result.append(username);
     result.append(", port: ");
     result.append(port);
+    result.append(", proxyCommand: ");
+    result.append(proxyCommand);
     result.append(')');
     return result.toString();
   }
@@ -432,6 +566,18 @@ public class CreateRemoteConnectionTaskImpl extends SetupTaskImpl implements Cre
       remoteConnWorkingCopy.setAttribute(JSchConnection.USERNAME_ATTR, getUsername());
       remoteConnWorkingCopy.setAttribute(JSchConnection.IS_PASSWORD_ATTR, "true");
       remoteConnWorkingCopy.setAttribute(JSchConnection.PORT_ATTR, getPort());
+
+      // proxy
+      if (getProxyConnection() != null)
+      {
+        remoteConnWorkingCopy.setAttribute(JSchConnection.PROXYCONNECTION_ATTR, getProxyConnection().getConnectionName());
+      }
+      if (getProxyCommand() != null)
+      {
+        remoteConnWorkingCopy.setAttribute(JSchConnection.PROXYCOMMAND_ATTR, getProxyCommand());
+        remoteConnWorkingCopy.setAttribute(JSchConnection.LOGIN_SHELL_COMMAND_ATTR, "/bin/bash -l -c '{0}'");
+      }
+
       remoteConnWorkingCopy.save();
     }
     else

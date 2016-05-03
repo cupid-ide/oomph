@@ -53,6 +53,8 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
       addHostPropertyDescriptor(object);
       addUsernamePropertyDescriptor(object);
       addPortPropertyDescriptor(object);
+      addProxyConnectionPropertyDescriptor(object);
+      addProxyCommandPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -115,6 +117,35 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
   }
 
   /**
+   * This adds a property descriptor for the Proxy Connection feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addProxyConnectionPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateRemoteConnectionTask_proxyConnection_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateRemoteConnectionTask_proxyConnection_feature", "_UI_CreateRemoteConnectionTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__PROXY_CONNECTION, true, false, true, null, null, null));
+  }
+
+  /**
+   * This adds a property descriptor for the Proxy Command feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addProxyCommandPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateRemoteConnectionTask_proxyCommand_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateRemoteConnectionTask_proxyCommand_feature", "_UI_CreateRemoteConnectionTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
+        null));
+  }
+
+  /**
    * This returns CreateRemoteConnectionTask.gif.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -169,6 +200,7 @@ public class CreateRemoteConnectionTaskItemProvider extends SetupTaskItemProvide
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__HOST:
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__USERNAME:
     case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PORT:
+    case CreateSyncProjectPackage.CREATE_REMOTE_CONNECTION_TASK__PROXY_COMMAND:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
       return;
     }

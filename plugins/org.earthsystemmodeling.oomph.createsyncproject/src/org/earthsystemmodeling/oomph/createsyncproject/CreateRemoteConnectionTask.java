@@ -17,6 +17,8 @@ import org.eclipse.oomph.setup.SetupTask;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getHost <em>Host</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getUsername <em>Username</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getPort <em>Port</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyConnection <em>Proxy Connection</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyCommand <em>Proxy Command</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask()
@@ -129,5 +131,57 @@ public interface CreateRemoteConnectionTask extends SetupTask
    * @generated
    */
   void setPort(String value);
+
+  /**
+   * Returns the value of the '<em><b>Proxy Connection</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Proxy Connection</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Proxy Connection</em>' reference.
+   * @see #setProxyConnection(CreateRemoteConnectionTask)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask_ProxyConnection()
+   * @model
+   * @generated
+   */
+  CreateRemoteConnectionTask getProxyConnection();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyConnection <em>Proxy Connection</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Proxy Connection</em>' reference.
+   * @see #getProxyConnection()
+   * @generated
+   */
+  void setProxyConnection(CreateRemoteConnectionTask value);
+
+  /**
+   * Returns the value of the '<em><b>Proxy Command</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Proxy Command</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Proxy Command</em>' attribute.
+   * @see #setProxyCommand(String)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateRemoteConnectionTask_ProxyCommand()
+   * @model
+   * @generated
+   */
+  String getProxyCommand();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask#getProxyCommand <em>Proxy Command</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Proxy Command</em>' attribute.
+   * @see #getProxyCommand()
+   * @generated
+   */
+  void setProxyCommand(String value);
 
 } // CreateRemoteConnectionTask
