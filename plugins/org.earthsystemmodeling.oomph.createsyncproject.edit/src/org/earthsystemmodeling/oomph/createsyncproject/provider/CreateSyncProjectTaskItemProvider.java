@@ -116,7 +116,7 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
     if (childrenFeatures == null)
     {
       super.getChildrenFeatures(object);
-      childrenFeatures.add(CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__FILTER);
+      childrenFeatures.add(CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__FILE_FILTER);
     }
     return childrenFeatures;
   }
@@ -190,7 +190,7 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
       return;
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
       return;
     }
@@ -209,8 +209,8 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
 
-    newChildDescriptors
-        .add(createChildParameter(CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__FILTER, CreateSyncProjectFactory.eINSTANCE.createFileFilter()));
+    newChildDescriptors.add(
+        createChildParameter(CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__FILE_FILTER, CreateSyncProjectFactory.eINSTANCE.createFileFilter()));
   }
 
 }

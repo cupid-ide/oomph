@@ -152,6 +152,15 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_SYNC_PROJECT_TASK__RESTRICTIONS = SetupPackage.SETUP_TASK__RESTRICTIONS;
 
   /**
+   * The feature id for the '<em><b>Filter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_SYNC_PROJECT_TASK__FILTER = SetupPackage.SETUP_TASK__FILTER;
+
+  /**
    * The feature id for the '<em><b>Project Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -179,13 +188,13 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = SetupPackage.SETUP_TASK_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Filter</b></em>' containment reference list.
+   * The feature id for the '<em><b>File Filter</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_SYNC_PROJECT_TASK__FILTER = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
+  int CREATE_SYNC_PROJECT_TASK__FILE_FILTER = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Task</em>' class.
@@ -286,6 +295,15 @@ public interface CreateSyncProjectPackage extends EPackage
    * @ordered
    */
   int CREATE_REMOTE_CONNECTION_TASK__RESTRICTIONS = SetupPackage.SETUP_TASK__RESTRICTIONS;
+
+  /**
+   * The feature id for the '<em><b>Filter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_REMOTE_CONNECTION_TASK__FILTER = SetupPackage.SETUP_TASK__FILTER;
 
   /**
    * The feature id for the '<em><b>Connection Name</b></em>' attribute.
@@ -413,15 +431,15 @@ public interface CreateSyncProjectPackage extends EPackage
   EAttribute getCreateSyncProjectTask_RemoteLocation();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter <em>Filter</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFileFilter <em>File Filter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Filter</em>'.
-   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter()
+   * @return the meta object for the containment reference list '<em>File Filter</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFileFilter()
    * @see #getCreateSyncProjectTask()
    * @generated
    */
-  EReference getCreateSyncProjectTask_Filter();
+  EReference getCreateSyncProjectTask_FileFilter();
 
   /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask <em>Create Remote Connection Task</em>}'.
@@ -567,12 +585,12 @@ public interface CreateSyncProjectPackage extends EPackage
     EAttribute CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION = eINSTANCE.getCreateSyncProjectTask_RemoteLocation();
 
     /**
-     * The meta object literal for the '<em><b>Filter</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>File Filter</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CREATE_SYNC_PROJECT_TASK__FILTER = eINSTANCE.getCreateSyncProjectTask_Filter();
+    EReference CREATE_SYNC_PROJECT_TASK__FILE_FILTER = eINSTANCE.getCreateSyncProjectTask_FileFilter();
 
     /**
      * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.

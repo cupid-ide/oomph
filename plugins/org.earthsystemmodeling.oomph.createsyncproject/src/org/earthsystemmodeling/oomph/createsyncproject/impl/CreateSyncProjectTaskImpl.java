@@ -78,7 +78,7 @@ import java.util.Set;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getProjectName <em>Project Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteLocation <em>Remote Location</em>}</li>
- *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getFileFilter <em>File Filter</em>}</li>
  * </ul>
  *
  * @generated
@@ -149,14 +149,14 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
   protected String remoteLocation = REMOTE_LOCATION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference list.
+   * The cached value of the '{@link #getFileFilter() <em>File Filter</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFilter()
+   * @see #getFileFilter()
    * @generated
    * @ordered
    */
-  protected EList<FileFilter> filter;
+  protected EList<FileFilter> fileFilter;
 
   private static final int PRIORITY = PRIORITY_DEFAULT;
 
@@ -263,13 +263,13 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FileFilter> getFilter()
+  public EList<FileFilter> getFileFilter()
   {
-    if (filter == null)
+    if (fileFilter == null)
     {
-      filter = new EObjectContainmentEList<FileFilter>(FileFilter.class, this, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER);
+      fileFilter = new EObjectContainmentEList<FileFilter>(FileFilter.class, this, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER);
     }
-    return filter;
+    return fileFilter;
   }
 
   /**
@@ -282,8 +282,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
   {
     switch (featureID)
     {
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
-      return ((InternalEList<?>)getFilter()).basicRemove(otherEnd, msgs);
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
+      return ((InternalEList<?>)getFileFilter()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -304,8 +304,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return getRemoteConnectionName();
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       return getRemoteLocation();
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
-      return getFilter();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
+      return getFileFilter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -330,9 +330,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       setRemoteLocation((String)newValue);
       return;
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
-      getFilter().clear();
-      getFilter().addAll((Collection<? extends FileFilter>)newValue);
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
+      getFileFilter().clear();
+      getFileFilter().addAll((Collection<? extends FileFilter>)newValue);
       return;
     }
     super.eSet(featureID, newValue);
@@ -357,8 +357,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       setRemoteLocation(REMOTE_LOCATION_EDEFAULT);
       return;
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
-      getFilter().clear();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
+      getFileFilter().clear();
       return;
     }
     super.eUnset(featureID);
@@ -380,8 +380,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return REMOTE_CONNECTION_NAME_EDEFAULT == null ? remoteConnectionName != null : !REMOTE_CONNECTION_NAME_EDEFAULT.equals(remoteConnectionName);
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
       return REMOTE_LOCATION_EDEFAULT == null ? remoteLocation != null : !REMOTE_LOCATION_EDEFAULT.equals(remoteLocation);
-    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILTER:
-      return filter != null && !filter.isEmpty();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
+      return fileFilter != null && !fileFilter.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -570,7 +570,7 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     };
 
     AbstractSyncFileFilter fileFilter = SyncManager.getDefaultFileFilter();
-    for (FileFilter ff : getFilter())
+    for (FileFilter ff : getFileFilter())
     {
       fileFilter.addPattern(ff.getPattern(), ff.isExclude());
     }

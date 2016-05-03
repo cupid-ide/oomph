@@ -159,7 +159,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCreateSyncProjectTask_Filter()
+  public EReference getCreateSyncProjectTask_FileFilter()
   {
     return (EReference)createSyncProjectTaskEClass.getEStructuralFeatures().get(3);
   }
@@ -281,7 +281,7 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__PROJECT_NAME);
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME);
     createEAttribute(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION);
-    createEReference(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__FILTER);
+    createEReference(createSyncProjectTaskEClass, CREATE_SYNC_PROJECT_TASK__FILE_FILTER);
 
     createRemoteConnectionTaskEClass = createEClass(CREATE_REMOTE_CONNECTION_TASK);
     createEAttribute(createRemoteConnectionTaskEClass, CREATE_REMOTE_CONNECTION_TASK__CONNECTION_NAME);
@@ -340,8 +340,8 @@ public class CreateSyncProjectPackageImpl extends EPackageImpl implements Create
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCreateSyncProjectTask_RemoteLocation(), ecorePackage.getEString(), "remoteLocation", null, 1, 1, CreateSyncProjectTask.class,
         !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCreateSyncProjectTask_Filter(), getFileFilter(), null, "filter", null, 0, -1, CreateSyncProjectTask.class, !IS_TRANSIENT, !IS_VOLATILE,
-        IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCreateSyncProjectTask_FileFilter(), getFileFilter(), null, "fileFilter", null, 0, -1, CreateSyncProjectTask.class, !IS_TRANSIENT,
+        !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(createRemoteConnectionTaskEClass, CreateRemoteConnectionTask.class, "CreateRemoteConnectionTask", !IS_ABSTRACT, !IS_INTERFACE,
         IS_GENERATED_INSTANCE_CLASS);

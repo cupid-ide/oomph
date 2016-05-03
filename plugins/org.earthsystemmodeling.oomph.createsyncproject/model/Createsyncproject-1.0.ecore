@@ -20,7 +20,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteLocation" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileFilter" upperBound="-1"
         eType="#//FileFilter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CreateRemoteConnectionTask" eSuperTypes="http://www.eclipse.org/oomph/setup/1.0#//SetupTask">

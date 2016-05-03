@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getProjectName <em>Project Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}</li>
- *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFilter <em>Filter</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFileFilter <em>File Filter</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask()
@@ -115,19 +115,19 @@ public interface CreateSyncProjectTask extends SetupTask
   void setRemoteLocation(String value);
 
   /**
-   * Returns the value of the '<em><b>Filter</b></em>' containment reference list.
+   * Returns the value of the '<em><b>File Filter</b></em>' containment reference list.
    * The list contents are of type {@link org.earthsystemmodeling.oomph.createsyncproject.FileFilter}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Filter</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>File Filter</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Filter</em>' containment reference list.
-   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_Filter()
+   * @return the value of the '<em>File Filter</em>' containment reference list.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_FileFilter()
    * @model containment="true"
    * @generated
    */
-  EList<FileFilter> getFilter();
+  EList<FileFilter> getFileFilter();
 
 } // CreateSyncProjectTask
