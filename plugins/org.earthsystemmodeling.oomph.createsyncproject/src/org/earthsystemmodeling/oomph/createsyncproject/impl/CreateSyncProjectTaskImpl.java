@@ -44,6 +44,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.photran.internal.core.FProjectNature;
+import org.eclipse.photran.internal.core.properties.SearchPathProperties;
 import org.eclipse.ptp.internal.rdt.sync.cdt.ui.wizards.NewRemoteSyncProjectWizardOperation;
 import org.eclipse.ptp.internal.rdt.sync.ui.SynchronizeParticipantRegistry;
 import org.eclipse.ptp.rdt.sync.core.AbstractSyncFileFilter;
@@ -79,6 +80,7 @@ import java.util.Set;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getRemoteLocation <em>Remote Location</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#getFileFilter <em>File Filter</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateSyncProjectTaskImpl#isEnableFortranAnalysis <em>Enable Fortran Analysis</em>}</li>
  * </ul>
  *
  * @generated
@@ -157,6 +159,26 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * @ordered
    */
   protected EList<FileFilter> fileFilter;
+
+  /**
+   * The default value of the '{@link #isEnableFortranAnalysis() <em>Enable Fortran Analysis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEnableFortranAnalysis()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ENABLE_FORTRAN_ANALYSIS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEnableFortranAnalysis() <em>Enable Fortran Analysis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEnableFortranAnalysis()
+   * @generated
+   * @ordered
+   */
+  protected boolean enableFortranAnalysis = ENABLE_FORTRAN_ANALYSIS_EDEFAULT;
 
   private static final int PRIORITY = PRIORITY_DEFAULT;
 
@@ -277,6 +299,32 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isEnableFortranAnalysis()
+  {
+    return enableFortranAnalysis;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEnableFortranAnalysis(boolean newEnableFortranAnalysis)
+  {
+    boolean oldEnableFortranAnalysis = enableFortranAnalysis;
+    enableFortranAnalysis = newEnableFortranAnalysis;
+    if (eNotificationRequired())
+    {
+      eNotify(new ENotificationImpl(this, Notification.SET, CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS,
+          oldEnableFortranAnalysis, enableFortranAnalysis));
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -306,6 +354,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return getRemoteLocation();
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
       return getFileFilter();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS:
+      return isEnableFortranAnalysis();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -334,6 +384,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       getFileFilter().clear();
       getFileFilter().addAll((Collection<? extends FileFilter>)newValue);
       return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS:
+      setEnableFortranAnalysis((Boolean)newValue);
+      return;
     }
     super.eSet(featureID, newValue);
   }
@@ -360,6 +413,9 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
       getFileFilter().clear();
       return;
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS:
+      setEnableFortranAnalysis(ENABLE_FORTRAN_ANALYSIS_EDEFAULT);
+      return;
     }
     super.eUnset(featureID);
   }
@@ -382,6 +438,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
       return REMOTE_LOCATION_EDEFAULT == null ? remoteLocation != null : !REMOTE_LOCATION_EDEFAULT.equals(remoteLocation);
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:
       return fileFilter != null && !fileFilter.isEmpty();
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS:
+      return enableFortranAnalysis != ENABLE_FORTRAN_ANALYSIS_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -406,6 +464,8 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     result.append(remoteConnectionName);
     result.append(", remoteLocation: ");
     result.append(remoteLocation);
+    result.append(", enableFortranAnalysis: ");
+    result.append(enableFortranAnalysis);
     result.append(')');
     return result.toString();
   }
@@ -475,6 +535,13 @@ public class CreateSyncProjectTaskImpl extends SetupTaskImpl implements CreateSy
     // Persist the project description
     mngr.setProjectDescription(project, des);
     monitor.worked(1);
+
+    // if requested, enable Fortran analysis
+    if (isEnableFortranAnalysis())
+    {
+      SearchPathProperties spp = new SearchPathProperties();
+      spp.setProperty(project, SearchPathProperties.ENABLE_VPG_PROPERTY_NAME, "true");
+    }
 
     // make synchronized project
 

@@ -197,13 +197,22 @@ public interface CreateSyncProjectPackage extends EPackage
   int CREATE_SYNC_PROJECT_TASK__FILE_FILTER = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Enable Fortran Analysis</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Task</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 4;
+  int CREATE_SYNC_PROJECT_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.
@@ -460,6 +469,17 @@ public interface CreateSyncProjectPackage extends EPackage
   EReference getCreateSyncProjectTask_FileFilter();
 
   /**
+   * Returns the meta object for the attribute '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#isEnableFortranAnalysis <em>Enable Fortran Analysis</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Enable Fortran Analysis</em>'.
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#isEnableFortranAnalysis()
+   * @see #getCreateSyncProjectTask()
+   * @generated
+   */
+  EAttribute getCreateSyncProjectTask_EnableFortranAnalysis();
+
+  /**
    * Returns the meta object for class '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateRemoteConnectionTask <em>Create Remote Connection Task</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -631,6 +651,14 @@ public interface CreateSyncProjectPackage extends EPackage
      * @generated
      */
     EReference CREATE_SYNC_PROJECT_TASK__FILE_FILTER = eINSTANCE.getCreateSyncProjectTask_FileFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Enable Fortran Analysis</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS = eINSTANCE.getCreateSyncProjectTask_EnableFortranAnalysis();
 
     /**
      * The meta object literal for the '{@link org.earthsystemmodeling.oomph.createsyncproject.impl.CreateRemoteConnectionTaskImpl <em>Create Remote Connection Task</em>}' class.

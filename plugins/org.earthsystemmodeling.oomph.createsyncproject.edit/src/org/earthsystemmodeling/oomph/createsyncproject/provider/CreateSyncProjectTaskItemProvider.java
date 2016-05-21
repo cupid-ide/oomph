@@ -54,6 +54,7 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
       addProjectNamePropertyDescriptor(object);
       addRemoteConnectionNamePropertyDescriptor(object);
       addRemoteLocationPropertyDescriptor(object);
+      addEnableFortranAnalysisPropertyDescriptor(object);
     }
     return itemPropertyDescriptors;
   }
@@ -100,6 +101,21 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
         getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_remoteLocation_feature", "_UI_CreateSyncProjectTask_type"),
         CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION, true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null,
         null));
+  }
+
+  /**
+   * This adds a property descriptor for the Enable Fortran Analysis feature.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  protected void addEnableFortranAnalysisPropertyDescriptor(Object object)
+  {
+    itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+        getString("_UI_CreateSyncProjectTask_enableFortranAnalysis_feature"),
+        getString("_UI_PropertyDescriptor_description", "_UI_CreateSyncProjectTask_enableFortranAnalysis_feature", "_UI_CreateSyncProjectTask_type"),
+        CreateSyncProjectPackage.Literals.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS, true, false, false, ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+        null, null));
   }
 
   /**
@@ -188,6 +204,7 @@ public class CreateSyncProjectTaskItemProvider extends SetupTaskItemProvider
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__PROJECT_NAME:
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_CONNECTION_NAME:
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__REMOTE_LOCATION:
+    case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__ENABLE_FORTRAN_ANALYSIS:
       fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
       return;
     case CreateSyncProjectPackage.CREATE_SYNC_PROJECT_TASK__FILE_FILTER:

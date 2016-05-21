@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteConnectionName <em>Remote Connection Name</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getRemoteLocation <em>Remote Location</em>}</li>
  *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#getFileFilter <em>File Filter</em>}</li>
+ *   <li>{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#isEnableFortranAnalysis <em>Enable Fortran Analysis</em>}</li>
  * </ul>
  *
  * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask()
@@ -129,5 +130,32 @@ public interface CreateSyncProjectTask extends SetupTask
    * @generated
    */
   EList<FileFilter> getFileFilter();
+
+  /**
+   * Returns the value of the '<em><b>Enable Fortran Analysis</b></em>' attribute.
+   * The default value is <code>"false"</code>.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Enable Fortran Analysis</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Enable Fortran Analysis</em>' attribute.
+   * @see #setEnableFortranAnalysis(boolean)
+   * @see org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectPackage#getCreateSyncProjectTask_EnableFortranAnalysis()
+   * @model default="false" required="true"
+   * @generated
+   */
+  boolean isEnableFortranAnalysis();
+
+  /**
+   * Sets the value of the '{@link org.earthsystemmodeling.oomph.createsyncproject.CreateSyncProjectTask#isEnableFortranAnalysis <em>Enable Fortran Analysis</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Enable Fortran Analysis</em>' attribute.
+   * @see #isEnableFortranAnalysis()
+   * @generated
+   */
+  void setEnableFortranAnalysis(boolean value);
 
 } // CreateSyncProjectTask
